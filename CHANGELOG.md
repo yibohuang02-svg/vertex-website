@@ -325,6 +325,89 @@ All instances of "First" preceding "Repair Centre" removed site-wide:
 
 ---
 
+## Version 7 — Coverage Redesign, Real SEA Map & Mobile Polish
+
+**Brief from user:** Remove ISO certifications, rewrite coverage to reflect all-SEA service with Singapore HQ and planned Q4 2026 repair centres in Johor Bahru and Bangkok, replace abstract map with actual country outlines, restructure detail cards, and add mobile breathing space.
+
+### ISO Certifications Removed
+
+| Location | Change |
+|---|---|
+| About section | `cert-badges` block removed entirely |
+| Footer | Certifications column removed entirely |
+
+### Coverage Section Rewritten
+
+The old split-by-site coverage model was replaced with an all-SEA coverage model.
+
+| Element | Before | After |
+|---|---|---|
+| Section subtitle | Mentioned separate site tabs | "Serving All of Southeast Asia" — single unified service |
+| Structure | Separate tabs/cards per site | HQ (Singapore, operational) + Repair Centres (JB + Bangkok, Q4 2026) |
+| JB status | Operational | Operational (unchanged) |
+| Bangkok | Not prominently featured | Promoted to full planned repair centre card |
+| Marker colours | Green for operational, blue-grey for planned | Green for HQ, amber `#D97706` for Q4 2026 planned centres |
+
+New `coverage-area-note` added listing all SEA countries served: Singapore · Malaysia · Indonesia · Thailand · Vietnam · Philippines · Myanmar · Cambodia · and all of Southeast Asia.
+
+### SEA Map — Actual Country Outlines
+
+The previous abstract hand-drawn shapes were replaced with simplified but geographically accurate country outlines.
+
+| Before | After |
+|---|---|
+| Abstract blobs (4–5 generic shapes) | Proper country polygons for all 12 SEA countries/island groups |
+| Animated pulse rings around markers | Clean solid markers — no rings |
+| 3-item legend (HQ, Repair Centre, Coverage Area) | 2-item legend (HQ operational, Repair Centre Q4 2026) |
+| Grid pattern background | Solid ocean blue `#C5D9EC` |
+
+Countries rendered: Myanmar · Thailand · Laos · Vietnam · Cambodia · Malaysia Peninsula · Sumatra · Java · Borneo · Sulawesi · Philippines (Luzon, Visayas, Mindanao).
+
+Site markers: Singapore HQ (green `#0E9850`, 8px), Johor Bahru (amber `#D97706`, 6px), Bangkok (amber `#D97706`, 7px) — all with white `stroke-width: 2` rings for legibility on the land fill.
+
+Context labels retained (faint): Kuala Lumpur, Ho Chi Minh, Manila.
+
+New CSS: `.country { fill: #C8D8C8; stroke: #9AB0A0; stroke-width: 0.8; }` — applied to all country `<path>` and `<polygon>` elements via class.
+
+Pulse ring CSS (`@keyframes pulseRingAnim`, `.pulse-ring`, `.pulse-ring-2`) removed.
+
+### Coverage Detail Cards — Grouped Layout
+
+| Before | After |
+|---|---|
+| Flat list of 3 cards | Cards grouped under "HQ" and "Repair Centre" section headers |
+| "Singapore Headquarters" title | "Singapore" |
+| "Johor Bahru Repair Centre" title | "Johor Bahru" |
+| "Bangkok Repair Centre" title | "Bangkok" |
+
+New HTML structure: `.coverage-group` wraps a `.coverage-group-label` header and one or more `.coverage-point` cards.
+
+New CSS:
+```css
+.coverage-group { display: flex; flex-direction: column; gap: 12px; }
+.coverage-group-label {
+  font-size: 0.7rem; font-family: var(--font-mono);
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text-dim); padding-left: 2px;
+}
+```
+
+### Mobile Breathing Space
+
+Added extra top padding for the first section in Services, Coverage, and Cases tabs on mobile, creating breathing room between the fixed dark navbar and the first line of page content.
+
+```css
+@media (max-width: 768px) {
+  #panel-services > .section:first-child,
+  #panel-coverage > .section:first-child,
+  #panel-cases    > .section:first-child { padding-top: 120px; }
+}
+```
+
+Before: `72px` (inherited from `.section` mobile rule). After: `120px` (+48px).
+
+---
+
 ## File Structure
 
 ```
