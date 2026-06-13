@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vertex Services — AI Infrastructure Repair & Maintenance</title>
-  <meta name="description" content="Southeast Asia's premier partner for high-performance AI computing equipment repair and maintenance. Headquartered in Singapore, first repair centre in Johor Bahru." />
+  <title>Vertex Infrastructure Services Pte. Ltd. — AI Infrastructure Repair & Maintenance</title>
+  <meta name="description" content="Southeast Asia's premier partner for high-performance AI computing equipment repair and maintenance. Headquartered in Singapore, repair centre in Johor Bahru." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -17,31 +17,20 @@
   ══════════════════════════════════════════ -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
-      <a href="#home" class="nav-logo">
+      <a href="#home" class="nav-logo" data-goto-tab="home">
         <svg class="logo-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <polygon points="20,2 38,34 2,34" fill="none" stroke="url(#grad1)" stroke-width="2.5" stroke-linejoin="round"/>
-          <polygon points="20,10 32,30 8,30" fill="url(#grad2)" opacity="0.15"/>
-          <line x1="20" y1="2" x2="20" y2="34" stroke="url(#grad1)" stroke-width="1.5" opacity="0.5"/>
-          <defs>
-            <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#00D4FF"/>
-              <stop offset="100%" stop-color="#7C3AED"/>
-            </linearGradient>
-            <linearGradient id="grad2" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#00D4FF"/>
-              <stop offset="100%" stop-color="#7C3AED"/>
-            </linearGradient>
-          </defs>
+          <polygon points="20,2 38,34 2,34" fill="none" stroke="#0E9850" stroke-width="2.5" stroke-linejoin="round"/>
+          <polygon points="20,10 32,30 8,30" fill="#0E9850" opacity="0.12"/>
+          <line x1="20" y1="2" x2="20" y2="34" stroke="#0E9850" stroke-width="1.5" opacity="0.5"/>
         </svg>
         <span class="logo-text">VERTEX<span class="logo-accent">SERVICES</span></span>
       </a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#process">Process</a></li>
-        <li><a href="#coverage">Coverage</a></li>
-        <li><a href="#cases">Cases</a></li>
-        <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+      <ul class="nav-links" id="navLinks">
+        <li><button class="nav-tab active" data-tab="home">Home</button></li>
+        <li><button class="nav-tab" data-tab="services">Services</button></li>
+        <li><button class="nav-tab" data-tab="coverage">Coverage</button></li>
+        <li><button class="nav-tab" data-tab="cases">Cases</button></li>
+        <li><button class="nav-tab nav-cta" data-tab="contact">Get a Quote</button></li>
       </ul>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -49,798 +38,801 @@
     </div>
   </nav>
 
-  <!-- ══════════════════════════════════════════
-       HERO
-  ══════════════════════════════════════════ -->
-  <section class="hero" id="home">
-    <canvas class="hero-canvas" id="heroCanvas"></canvas>
-    <div class="hero-overlay"></div>
-    <div class="container hero-content">
-      <div class="hero-badge">
-        <span class="badge-dot"></span>
-        Headquartered in Singapore &nbsp;·&nbsp; First Repair Centre: Johor Bahru
-      </div>
-      <h1 class="hero-title">
-        Precision Repair for<br/>
-        <span class="gradient-text">AI Infrastructure</span>
-      </h1>
-      <p class="hero-sub">
-        Southeast Asia's most capable hardware repair partner for high-end GPU servers and AI computing equipment. Chip-level precision. Mission-critical reliability.
-      </p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary">Request a Service</a>
-        <a href="#services" class="btn btn-ghost">
-          Explore Services
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat-item">
-          <span class="stat-number" data-target="60">0</span><span class="stat-suffix">+</span>
-          <span class="stat-label">Engineers</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <span class="stat-number" data-target="85">0</span><span class="stat-suffix">%+</span>
-          <span class="stat-label">Chip Repair Success Rate</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <span class="stat-number" data-target="60">0</span><span class="stat-suffix">-Day</span>
-          <span class="stat-label">Warranty Coverage</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <span class="stat-number" data-target="24">0</span><span class="stat-suffix">/7</span>
-          <span class="stat-label">Support Available</span>
-        </div>
-      </div>
-    </div>
-    <a href="#about" class="scroll-indicator" aria-label="Scroll down">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 13l7 7 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-  </section>
+  <main>
 
   <!-- ══════════════════════════════════════════
-       ABOUT
+       TAB: HOME
   ══════════════════════════════════════════ -->
-  <section class="section about" id="about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-text">
-          <div class="section-label">About Vertex Services</div>
-          <h2 class="section-title">Full-Stack Support for <span class="gradient-text">Mission-Critical AI Systems</span></h2>
-          <p class="about-body">
-            Vertex Services is a Singapore-incorporated specialist in the repair, maintenance, and operational support of high-end AI computing infrastructure. We operate a state-of-the-art end-to-end repair facility equipped with micron-level BGA rework stations, advanced diagnostic instruments, and dust-free soldering workstations.
-          </p>
-          <p class="about-body">
-            Our first dedicated repair centre is established in Johor Bahru, Malaysia — strategically positioned to serve Singapore and the broader Southeast Asian market with rapid turnaround and uncompromising quality.
-          </p>
-          <div class="about-pillars">
-            <div class="pillar">
-              <div class="pillar-icon">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L3 7v6l7 5 7-5V7L10 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
-              </div>
-              <div>
-                <strong>Profession</strong>
-                <p>Chip-level expertise on NVIDIA and AMD high-end GPU platforms</p>
-              </div>
-            </div>
-            <div class="pillar">
-              <div class="pillar-icon">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M10 6v4l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-              </div>
-              <div>
-                <strong>Responsible</strong>
-                <p>Transparent SLAs, rigorous documentation, and clear accountability</p>
-              </div>
-            </div>
-            <div class="pillar">
-              <div class="pillar-icon">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 10h4l3-7 4 14 3-7h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <div>
-                <strong>Technology</strong>
-                <p>3D imaging, BGA rework, OEM-level testing platforms, and AI-based diagnostics</p>
-              </div>
-            </div>
+  <div class="tab-panel active" id="panel-home">
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <canvas class="hero-canvas" id="heroCanvas"></canvas>
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          Headquartered in Singapore &nbsp;·&nbsp; Repair Centre: Johor Bahru
+        </div>
+        <h1 class="hero-title">
+          Precision Repair for<br/>
+          <span class="gradient-text">AI Infrastructure</span>
+        </h1>
+        <p class="hero-sub">
+          Southeast Asia's most capable hardware maintenance and repair partner for high-end GPU servers and AI computing equipment. Chip-level precision. Mission-critical reliability.
+        </p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" data-goto-tab="contact">Request a Service</button>
+          <button class="btn btn-ghost" data-goto-tab="services">
+            Explore Services
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number" data-target="50">0</span><span class="stat-suffix">+</span>
+            <span class="stat-label">Engineers</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="85">0</span><span class="stat-suffix">%+</span>
+            <span class="stat-label">Chip Repair Success Rate</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="60">0</span><span class="stat-suffix">-Day</span>
+            <span class="stat-label">Warranty Coverage</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="24">0</span><span class="stat-suffix">/7</span>
+            <span class="stat-label">Support Available</span>
           </div>
         </div>
-        <div class="about-visual">
-          <div class="about-card-grid">
-            <div class="about-card accent-cyan">
-              <div class="about-card-number">99.2<span>%</span></div>
-              <div class="about-card-label">Overall Repair Success Rate</div>
-            </div>
-            <div class="about-card accent-violet">
-              <div class="about-card-number">&lt;0.8<span>%</span></div>
-              <div class="about-card-label">Fault Recurrence Rate</div>
-            </div>
-            <div class="about-card accent-green">
-              <div class="about-card-number">48<span>hr</span></div>
-              <div class="about-card-label">Module Repair Turnaround</div>
-            </div>
-            <div class="about-card accent-cyan2">
-              <div class="about-card-number">30<span>min</span></div>
-              <div class="about-card-label">Spare Parts Delivery (Same City)</div>
+        <div class="hero-visual">
+          <img src="/images/pdf_p52_0.jpeg" alt="Engineer testing GPU server board at Vertex Infrastructure Services repair facility" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about" id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-text">
+            <div class="section-label">About Vertex Infrastructure Services</div>
+            <h2 class="section-title">Full-Stack Support for <span class="gradient-text">Mission-Critical AI Systems</span></h2>
+            <p class="about-body">
+              Vertex Infrastructure Services Pte. Ltd. is a Singapore-incorporated specialist in the repair, maintenance, and operational support of high-end AI computing infrastructure. We operate a state-of-the-art end-to-end repair facility equipped with micron-level BGA rework stations, advanced diagnostic instruments, and dust-free soldering workstations.
+            </p>
+            <p class="about-body">
+              Our dedicated repair centre is established in Johor Bahru, Malaysia — strategically positioned to serve Singapore and the broader Southeast Asian market with rapid turnaround and uncompromising quality.
+            </p>
+            <div class="about-pillars">
+              <div class="pillar">
+                <div class="pillar-icon">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L3 7v6l7 5 7-5V7L10 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                </div>
+                <div>
+                  <strong>Profession</strong>
+                  <p>Chip-level expertise on NVIDIA and AMD high-end GPU platforms</p>
+                </div>
+              </div>
+              <div class="pillar">
+                <div class="pillar-icon">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M10 6v4l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </div>
+                <div>
+                  <strong>Responsible</strong>
+                  <p>Transparent SLAs, rigorous documentation, and clear accountability</p>
+                </div>
+              </div>
+              <div class="pillar">
+                <div class="pillar-icon">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 10h4l3-7 4 14 3-7h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div>
+                  <strong>Technology</strong>
+                  <p>3D imaging, BGA rework, OEM-level testing platforms, and AI-based diagnostics</p>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="cert-badges">
-            <div class="cert-badge">
-              <span class="cert-iso">ISO</span>
-              <span class="cert-num">9001</span>
-              <span class="cert-type">Quality</span>
+          <div class="about-visual">
+            <div class="about-photo">
+              <img src="/images/pdf_p11_0.jpeg" alt="Certified engineer performing precision chip-level PCB repair" loading="lazy" />
             </div>
-            <div class="cert-badge">
-              <span class="cert-iso">ISO</span>
-              <span class="cert-num">14001</span>
-              <span class="cert-type">Environment</span>
+            <div class="about-card-grid">
+              <div class="about-card accent-green">
+                <div class="about-card-number">99.2<span>%</span></div>
+                <div class="about-card-label">Overall Repair Success Rate</div>
+              </div>
+              <div class="about-card">
+                <div class="about-card-number">&lt;0.8<span>%</span></div>
+                <div class="about-card-label">Fault Recurrence Rate</div>
+              </div>
+              <div class="about-card">
+                <div class="about-card-number">48<span>hr</span></div>
+                <div class="about-card-label">Module Repair Turnaround</div>
+              </div>
+              <div class="about-card accent-green">
+                <div class="about-card-number">30<span>min</span></div>
+                <div class="about-card-label">Spare Parts Delivery (Same City)</div>
+              </div>
             </div>
-            <div class="cert-badge">
-              <span class="cert-iso">ISO</span>
-              <span class="cert-num">45001</span>
-              <span class="cert-type">Safety</span>
+            <div class="cert-badges">
+              <div class="cert-badge">
+                <span class="cert-iso">ISO</span>
+                <span class="cert-num">9001</span>
+                <span class="cert-type">Quality</span>
+              </div>
+              <div class="cert-badge">
+                <span class="cert-iso">ISO</span>
+                <span class="cert-num">14001</span>
+                <span class="cert-type">Environment</span>
+              </div>
+              <div class="cert-badge">
+                <span class="cert-iso">ISO</span>
+                <span class="cert-num">45001</span>
+                <span class="cert-type">Safety</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+  </div><!-- /panel-home -->
 
   <!-- ══════════════════════════════════════════
-       SERVICES
+       TAB: SERVICES
   ══════════════════════════════════════════ -->
-  <section class="section services" id="services">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-label">Core Business System</div>
-        <h2 class="section-title">Full-Stack Hardware & Software <span class="gradient-text">Expertise</span></h2>
-        <p class="section-sub">From chip-level GPU repair to full operations and maintenance contracts — we close the entire technical loop.</p>
+  <div class="tab-panel" id="panel-services">
+
+    <!-- SERVICES -->
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">Core Business System</div>
+          <h2 class="section-title">Full-Stack Hardware & Software <span class="gradient-text">Expertise</span></h2>
+          <p class="section-sub">From chip-level GPU repair to full operations and maintenance contracts — we close the entire technical loop.</p>
+        </div>
+        <div class="services-visual">
+          <img src="/images/pdf_p67_0.jpeg" alt="Vertex Infrastructure Services engineers performing GPU diagnostics at Johor Bahru repair centre" loading="lazy" />
+          <div class="services-visual-caption">Our engineering team at the Johor Bahru Repair Centre</div>
+        </div>
+        <div class="services-grid">
+
+          <div class="service-card featured">
+            <div class="service-icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="6" width="22" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 10h12M8 14h8M8 18h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="22" cy="19" r="5" fill="var(--bg-card)" stroke="currentColor" stroke-width="1.5"/><path d="M22 16v3l2 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>GPU Core Component Repair</h3>
+            <p>Chip-level and module-level repair targeting NVIDIA A-Series, H-Series, and B-Series GPUs. BGA rework stations and logic analysers ensure &gt;85% repair success on VRAM, PCIe, and power-circuit faults.</p>
+            <ul class="service-tags">
+              <li>VRAM Repair</li><li>BGA Rework</li><li>PCIe Interface</li><li>Power Circuits</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 20V10l10-6 10 6v10l-10 6-10-6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M14 4v16M4 10l10 6 10-6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Whole-Machine Diagnosis & Repair</h3>
+            <p>Comprehensive full-system fault analysis covering 128 diagnostic metrics. 3D imaging for latent fault localisation, followed by OEM-level validation of compute performance.</p>
+            <ul class="service-tags">
+              <li>3D Imaging</li><li>128 Metrics</li><li>OEM Validation</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="8" width="24" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="14" r="2" stroke="currentColor" stroke-width="1.3"/><path d="M13 11h8M13 14h6M13 17h4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M8 8V6M20 8V6M8 20v2M20 20v2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Spare-Parts Supply Chain</h3>
+            <p>Three-tier warehousing network across the region. Headquarter warehouse + regional hubs + on-site customer stocking. All parts tested via ATE with 30-day warranty. City-wide delivery within 30 minutes.</p>
+            <ul class="service-tags">
+              <li>ATE Tested</li><li>3-Tier Network</li><li>1:1 Redundancy</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M6 4h16v20H6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M10 9h8M10 13h8M10 17h5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><circle cx="21" cy="21" r="5" fill="var(--bg-card)" stroke="currentColor" stroke-width="1.5"/><path d="M19 21l1.5 1.5L23 19" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Software Testing & Maintenance</h3>
+            <p>Precision driver management, BIOS/UEFI optimisation, firmware upgrade and health checks, CUDA toolkit compatibility, and performance benchmarking with standardised stress testing reports.</p>
+            <ul class="service-tags">
+              <li>Driver Ops</li><li>VBIOS Flash</li><li>DCGM Monitoring</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M14 6v8l5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M4 14h2M22 14h2M14 4v2M14 22v2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            </div>
+            <h3>On-site O&M Services</h3>
+            <p>Resident and non-resident on-site operations and maintenance. Real-time system monitoring with four-level alert thresholds, weekly inspection reports, and cross-team fault escalation protocols.</p>
+            <ul class="service-tags">
+              <li>24/7 Monitoring</li><li>Resident Option</li><li>P0–P3 Response</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 3l10 5.5v11L14 25 4 19.5v-11L14 3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M14 3v22M4 8.5l10 5.5 10-5.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Extended Warranty & Value-Added</h3>
+            <p>1–3 year extended warranty packages, loaner GPU server rentals, full-lifecycle repair logging, quarterly Equipment Health Reports, and post-repair performance tuning to ≥98% of factory standard.</p>
+            <ul class="service-tags">
+              <li>Extended Warranty</li><li>Loaner Units</li><li>Lifecycle Reports</li>
+            </ul>
+          </div>
+
+        </div>
       </div>
-      <div class="services-grid">
+    </section>
 
-        <div class="service-card featured">
-          <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="6" width="22" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 10h12M8 14h8M8 18h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="22" cy="19" r="5" fill="var(--bg-card)" stroke="currentColor" stroke-width="1.5"/><path d="M22 16v3l2 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+    <!-- PROCESS -->
+    <section class="section process" id="process">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">Repair Workflow</div>
+          <h2 class="section-title">Rigorous <span class="gradient-text">Step-by-Step</span> Process</h2>
+          <p class="section-sub">Every repair follows a documented closed-loop protocol: inspection → diagnosis → repair → validation → delivery.</p>
+        </div>
+        <div class="process-track">
+          <div class="process-line"></div>
+          <div class="process-steps">
+            <div class="process-step">
+              <div class="step-node">01</div>
+              <div class="step-content">
+                <h4>Unboxing & Registration</h4>
+                <p>Unboxing video recorded. Initial customer service contact within 1 hour. Fault description and work order opened.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <div class="step-node">02</div>
+              <div class="step-content">
+                <h4>Visual & Electrical Inspection</h4>
+                <p>Visual check for impact damage, short-circuit testing, supply voltage and waveform measurement (±5% threshold).</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <div class="step-node">03</div>
+              <div class="step-content">
+                <h4>3D Imaging & Fault Localisation</h4>
+                <p>X-ray and thermal imaging to pinpoint concealed defects — cold solder joints, oxidation, micro-cracks — accurate Fault Diagnosis Report within 2 hours.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <div class="step-node">04</div>
+              <div class="step-content">
+                <h4>Quotation & Approval</h4>
+                <p>Itemised repair quotation issued. Customer confirmation required before work commences.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <div class="step-node">05</div>
+              <div class="step-content">
+                <h4>Component Repair / Replacement</h4>
+                <p>BGA reballing, capacitor replacement, PCB jumper repair, or module swap — all using manufacturer-certified components with second-pass QC.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <div class="step-node">06</div>
+              <div class="step-content">
+                <h4>GPU Burn Test & Stress Validation</h4>
+                <p>12-hour minimum burn-in under full load. DCGM monitoring, CUDA benchmarks, temperature and power-consumption verification.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <div class="step-node">07</div>
+              <div class="step-content">
+                <h4>Final Testing & Report</h4>
+                <p>OEM-level platform validation confirms compute performance at ≥98% of factory standard. Full Maintenance Test Report issued.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <div class="step-node">08</div>
+              <div class="step-content">
+                <h4>Anti-Static Packaging & Dispatch</h4>
+                <p>Triple-layer shockproof packaging with temperature/humidity loggers. Full-process logistics tracking to customer site.</p>
+              </div>
+            </div>
           </div>
-          <h3>GPU Core Component Repair</h3>
-          <p>Chip-level and module-level repair targeting NVIDIA A-Series, H-Series, and B-Series GPUs. BGA rework stations and logic analysers ensure &gt;85% repair success on VRAM, PCIe, and power-circuit faults.</p>
-          <ul class="service-tags">
-            <li>VRAM Repair</li><li>BGA Rework</li><li>PCIe Interface</li><li>Power Circuits</li>
-          </ul>
         </div>
 
-        <div class="service-card">
-          <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 20V10l10-6 10 6v10l-10 6-10-6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M14 4v16M4 10l10 6 10-6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        <div class="emergency-block">
+          <div class="emergency-header">
+            <div class="emergency-dot"></div>
+            <h3>Emergency Response Protocol</h3>
+            <span class="tag-pill">30-Minute Solution Target</span>
           </div>
-          <h3>Whole-Machine Diagnosis & Repair</h3>
-          <p>Comprehensive full-system fault analysis covering 128 diagnostic metrics. 3D imaging for latent fault localisation, followed by OEM-level validation of compute performance.</p>
-          <ul class="service-tags">
-            <li>3D Imaging</li><li>128 Metrics</li><li>OEM Validation</li>
-          </ul>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="8" width="24" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="14" r="2" stroke="currentColor" stroke-width="1.3"/><path d="M13 11h8M13 14h6M13 17h4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M8 8V6M20 8V6M8 20v2M20 20v2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+          <div class="emergency-steps">
+            <div class="em-step">
+              <span class="em-time">≤15 min</span>
+              <span class="em-desc">Initial remote diagnosis & emergency plan activated</span>
+            </div>
+            <div class="em-arrow">→</div>
+            <div class="em-step">
+              <span class="em-time">≤4 hrs</span>
+              <span class="em-desc">On-site arrival with spare parts and specialist engineers</span>
+            </div>
+            <div class="em-arrow">→</div>
+            <div class="em-step">
+              <span class="em-time">≤2 hrs</span>
+              <span class="em-desc">Fault localisation and component repair / replacement</span>
+            </div>
+            <div class="em-arrow">→</div>
+            <div class="em-step">
+              <span class="em-time">Final</span>
+              <span class="em-desc">Compute testing, system restoration, and repair report issued</span>
+            </div>
           </div>
-          <h3>Spare-Parts Supply Chain</h3>
-          <p>Three-tier warehousing network across the region. Headquarter warehouse + regional hubs + on-site customer stocking. All parts tested via ATE with 30-day warranty. City-wide delivery within 30 minutes.</p>
-          <ul class="service-tags">
-            <li>ATE Tested</li><li>3-Tier Network</li><li>1:1 Redundancy</li>
-          </ul>
         </div>
-
-        <div class="service-card">
-          <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M6 4h16v20H6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M10 9h8M10 13h8M10 17h5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><circle cx="21" cy="21" r="5" fill="var(--bg-card)" stroke="currentColor" stroke-width="1.5"/><path d="M19 21l1.5 1.5L23 19" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <h3>Software Testing & Maintenance</h3>
-          <p>Precision driver management, BIOS/UEFI optimisation, firmware upgrade and health checks, CUDA toolkit compatibility, and performance benchmarking with standardised stress testing reports.</p>
-          <ul class="service-tags">
-            <li>Driver Ops</li><li>VBIOS Flash</li><li>DCGM Monitoring</li>
-          </ul>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M14 6v8l5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M4 14h2M22 14h2M14 4v2M14 22v2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-          </div>
-          <h3>On-site O&M Services</h3>
-          <p>Resident and non-resident on-site operations and maintenance. Real-time system monitoring with four-level alert thresholds, weekly inspection reports, and cross-team fault escalation protocols.</p>
-          <ul class="service-tags">
-            <li>24/7 Monitoring</li><li>Resident Option</li><li>P0–P3 Response</li>
-          </ul>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 3l10 5.5v11L14 25 4 19.5v-11L14 3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M14 3v22M4 8.5l10 5.5 10-5.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-          </div>
-          <h3>Extended Warranty & Value-Added</h3>
-          <p>1–3 year extended warranty packages, loaner GPU server rentals, full-lifecycle repair logging, quarterly Equipment Health Reports, and post-repair performance tuning to ≥98% of factory standard.</p>
-          <ul class="service-tags">
-            <li>Extended Warranty</li><li>Loaner Units</li><li>Lifecycle Reports</li>
-          </ul>
-        </div>
-
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- SLA TIERS -->
+    <section class="section sla" id="sla">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">Service Tiers</div>
+          <h2 class="section-title">Choose the Right <span class="gradient-text">Level of Support</span></h2>
+          <p class="section-sub">From standard maintenance to dedicated on-site residency — we have a service tier for every scale of operation.</p>
+        </div>
+        <div class="sla-grid">
+
+          <div class="sla-card">
+            <div class="sla-tier-label">Basic</div>
+            <div class="sla-icon">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="1.5"/><path d="M16 10v6l4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <p class="sla-positioning">Ideal for operators with fewer than 100 servers or moderate response requirements.</p>
+            <ul class="sla-metrics">
+              <li><span class="metric-label">Initial Response</span><span class="metric-val">≤4 Hours</span></li>
+              <li><span class="metric-label">On-site Arrival</span><span class="metric-val">≤24 Hours</span></li>
+              <li><span class="metric-label">Repair Turnaround</span><span class="metric-val">≤14 Days</span></li>
+              <li><span class="metric-label">Spare Parts</span><span class="metric-val">100% Assured</span></li>
+              <li><span class="metric-label">Warranty</span><span class="metric-val">30 Days</span></li>
+            </ul>
+            <button class="btn btn-outline" data-goto-tab="contact">Enquire Now</button>
+          </div>
+
+          <div class="sla-card featured">
+            <div class="sla-recommended">Recommended</div>
+            <div class="sla-tier-label">Pro</div>
+            <div class="sla-icon">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 3l3.5 7 7.5 1.1-5.5 5.4 1.3 7.5L16 21l-6.8 3.6 1.3-7.5L5 11.1l7.5-1.1L16 3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            </div>
+            <p class="sla-positioning">For large-scale operators (100+ servers) requiring permanent on-site engineering support.</p>
+            <ul class="sla-metrics">
+              <li><span class="metric-label">Initial Response</span><span class="metric-val">≤2 Hours</span></li>
+              <li><span class="metric-label">On-site Arrival</span><span class="metric-val">≤10 Hours</span></li>
+              <li><span class="metric-label">Repair Turnaround</span><span class="metric-val">≤7 Days</span></li>
+              <li><span class="metric-label">Spare Parts</span><span class="metric-val">100% Assured</span></li>
+              <li><span class="metric-label">Warranty</span><span class="metric-val">60 Days</span></li>
+            </ul>
+            <button class="btn btn-primary" data-goto-tab="contact">Enquire Now</button>
+          </div>
+
+          <div class="sla-card">
+            <div class="sla-tier-label">MAX</div>
+            <div class="sla-icon">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 4l3 6h7l-5.5 4 2 7L16 17.5 9.5 21l2-7L6 10h7l3-6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="16" cy="16" r="3" stroke="currentColor" stroke-width="1.3"/></svg>
+            </div>
+            <p class="sla-positioning">Premium dedicated service for mission-critical AI data centres and hyperscale operators.</p>
+            <ul class="sla-metrics">
+              <li><span class="metric-label">Initial Response</span><span class="metric-val">≤30 Minutes</span></li>
+              <li><span class="metric-label">On-site Arrival</span><span class="metric-val">≤4 Hours</span></li>
+              <li><span class="metric-label">Repair Turnaround</span><span class="metric-val">≤5 Days</span></li>
+              <li><span class="metric-label">Spare Parts</span><span class="metric-val">100% Assured</span></li>
+              <li><span class="metric-label">Warranty</span><span class="metric-val">180 Days</span></li>
+            </ul>
+            <button class="btn btn-outline" data-goto-tab="contact">Enquire Now</button>
+          </div>
+
+        </div>
+
+        <div class="sla-dots" id="slaDots">
+          <div class="sla-dot active" data-index="0"></div>
+          <div class="sla-dot" data-index="1"></div>
+          <div class="sla-dot" data-index="2"></div>
+        </div>
+
+        <div class="fault-table">
+          <h3 class="fault-table-title">Fault Response Standards</h3>
+          <div class="fault-grid">
+            <div class="fault-row header">
+              <span>Level</span><span>Definition</span><span>Initial Response</span><span>Resolution Target</span>
+            </div>
+            <div class="fault-row p0">
+              <span class="fault-level">P0 <em>Critical</em></span>
+              <span>Full GPU cluster outage, data loss, critical service downtime</span>
+              <span class="fault-time">≤10 min</span>
+              <span class="fault-time">≤2 hrs</span>
+            </div>
+            <div class="fault-row p1">
+              <span class="fault-level">P1 <em>Severe</em></span>
+              <span>More than 50% GPUs unavailable, storage anomalies, driver conflicts</span>
+              <span class="fault-time">≤20 min</span>
+              <span class="fault-time">≤4 hrs</span>
+            </div>
+            <div class="fault-row p2">
+              <span class="fault-level">P2 <em>General</em></span>
+              <span>Single GPU down, CUDA errors, &gt;20% performance degradation</span>
+              <span class="fault-time">≤1 hr</span>
+              <span class="fault-time">≤12 hrs</span>
+            </div>
+            <div class="fault-row p3">
+              <span class="fault-level">P3 <em>Advisory</em></span>
+              <span>Temperature alerts, NVLink delays, dev/test environment issues</span>
+              <span class="fault-time">≤2 hrs</span>
+              <span class="fault-time">≤48 hrs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /panel-services -->
 
   <!-- ══════════════════════════════════════════
-       SERVICE PROCESS
+       TAB: COVERAGE
   ══════════════════════════════════════════ -->
-  <section class="section process" id="process">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-label">Repair Workflow</div>
-        <h2 class="section-title">Rigorous <span class="gradient-text">Step-by-Step</span> Process</h2>
-        <p class="section-sub">Every repair follows a documented closed-loop protocol: inspection → diagnosis → repair → validation → delivery.</p>
-      </div>
-      <div class="process-track">
-        <div class="process-line"></div>
-        <div class="process-steps">
-          <div class="process-step">
-            <div class="step-node">01</div>
-            <div class="step-content">
-              <h4>Unboxing & Registration</h4>
-              <p>Unboxing video recorded. Initial customer service contact within 1 hour. Fault description and work order opened.</p>
-            </div>
-          </div>
-          <div class="process-step">
-            <div class="step-node">02</div>
-            <div class="step-content">
-              <h4>Visual & Electrical Inspection</h4>
-              <p>Visual check for impact damage, short-circuit testing, supply voltage and waveform measurement (±5% threshold).</p>
-            </div>
-          </div>
-          <div class="process-step">
-            <div class="step-node">03</div>
-            <div class="step-content">
-              <h4>3D Imaging & Fault Localisation</h4>
-              <p>X-ray and thermal imaging to pinpoint concealed defects — cold solder joints, oxidation, micro-cracks — accurate Fault Diagnosis Report within 2 hours.</p>
-            </div>
-          </div>
-          <div class="process-step">
-            <div class="step-node">04</div>
-            <div class="step-content">
-              <h4>Quotation & Approval</h4>
-              <p>Itemised repair quotation issued. Customer confirmation required before work commences.</p>
-            </div>
-          </div>
-          <div class="process-step">
-            <div class="step-node">05</div>
-            <div class="step-content">
-              <h4>Component Repair / Replacement</h4>
-              <p>BGA reballing, capacitor replacement, PCB jumper repair, or module swap — all using manufacturer-certified components with second-pass QC.</p>
-            </div>
-          </div>
-          <div class="process-step">
-            <div class="step-node">06</div>
-            <div class="step-content">
-              <h4>GPU Burn Test & Stress Validation</h4>
-              <p>12-hour minimum burn-in under full load. DCGM monitoring, CUDA benchmarks, temperature and power-consumption verification.</p>
-            </div>
-          </div>
-          <div class="process-step">
-            <div class="step-node">07</div>
-            <div class="step-content">
-              <h4>Final Testing & Report</h4>
-              <p>OEM-level platform validation confirms compute performance at ≥98% of factory standard. Full Maintenance Test Report issued.</p>
-            </div>
-          </div>
-          <div class="process-step">
-            <div class="step-node">08</div>
-            <div class="step-content">
-              <h4>Anti-Static Packaging & Dispatch</h4>
-              <p>Triple-layer shockproof packaging with temperature/humidity loggers. Full-process logistics tracking to customer site.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="tab-panel" id="panel-coverage">
 
-      <!-- Emergency Process -->
-      <div class="emergency-block">
-        <div class="emergency-header">
-          <div class="emergency-dot"></div>
-          <h3>Emergency Response Protocol</h3>
-          <span class="tag-pill">30-Minute Solution Target</span>
+    <!-- COVERAGE -->
+    <section class="section coverage" id="coverage">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">Service Coverage</div>
+          <h2 class="section-title">Rooted in Singapore, <span class="gradient-text">Reaching Across SEA</span></h2>
+          <p class="section-sub">Our service network is anchored in Singapore with our repair centre in Johor Bahru, expanding progressively across Southeast Asia.</p>
         </div>
-        <div class="emergency-steps">
-          <div class="em-step">
-            <span class="em-time">≤15 min</span>
-            <span class="em-desc">Initial remote diagnosis & emergency plan activated</span>
+        <div class="coverage-layout">
+          <div class="coverage-map-area">
+            <div class="sea-map">
+              <svg viewBox="0 0 560 480" fill="none" xmlns="http://www.w3.org/2000/svg" class="map-svg">
+                <defs>
+                  <pattern id="mapGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(0,100,140,0.07)" stroke-width="0.5"/>
+                  </pattern>
+                </defs>
+                <rect width="560" height="480" fill="url(#mapGrid)"/>
+                <path d="M200 180 L230 160 L260 155 L280 170 L290 200 L285 240 L270 270 L255 290 L240 310 L225 330 L215 350 L210 370 L205 380" fill="#C2D8E8" stroke="#8AAEC8" stroke-width="1"/>
+                <ellipse cx="225" cy="390" rx="12" ry="6" fill="#B8D8EC" stroke="#6BA8C8" stroke-width="1"/>
+                <path d="M100 300 L140 260 L180 260 L220 290 L240 320 L260 350 L250 370 L220 380 L190 370 L160 360 L130 350 L110 330 L100 300z" fill="#C8DCE8" stroke="#9AB8CC" stroke-width="1"/>
+                <path d="M210 400 L260 395 L310 400 L340 410 L320 420 L270 422 L230 418 L210 410z" fill="#C8DCE8" stroke="#9AB8CC" stroke-width="1"/>
+                <path d="M200 80 L220 60 L235 55 L245 70 L250 100 L255 130 L250 155 L235 165 L215 160 L205 140 L200 110z" fill="#C8DCE8" stroke="#9AB8CC" stroke-width="1"/>
+                <path d="M290 70 L310 60 L325 80 L320 120 L310 160 L300 195 L285 205 L278 185 L282 150 L290 110 L295 80z" fill="#C8DCE8" stroke="#9AB8CC" stroke-width="1"/>
+                <path d="M390 120 L405 110 L415 130 L410 155 L400 165 L390 155 L385 135z" fill="#C8DCE8" stroke="#9AB8CC" stroke-width="1"/>
+                <path d="M405 175 L420 165 L430 185 L425 210 L410 215 L400 200 L405 180z" fill="#C8DCE8" stroke="#9AB8CC" stroke-width="1"/>
+                <line x1="225" y1="390" x2="225" y2="342" stroke="rgba(14,152,80,0.55)" stroke-width="1.2" stroke-dasharray="4,3"/>
+                <line x1="225" y1="390" x2="210" y2="300" stroke="rgba(14,152,80,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
+                <line x1="225" y1="390" x2="280" y2="410" stroke="rgba(14,152,80,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
+                <line x1="225" y1="390" x2="230" y2="100" stroke="rgba(14,100,50,0.2)" stroke-width="1" stroke-dasharray="4,3"/>
+                <line x1="225" y1="390" x2="305" y2="130" stroke="rgba(14,100,50,0.2)" stroke-width="1" stroke-dasharray="4,3"/>
+                <line x1="225" y1="390" x2="408" y2="190" stroke="rgba(14,100,50,0.2)" stroke-width="1" stroke-dasharray="4,3"/>
+                <circle cx="225" cy="390" r="8" fill="#0E9850"/>
+                <circle cx="225" cy="390" r="14" fill="none" stroke="#0E9850" stroke-width="1" opacity="0.45" class="pulse-ring"/>
+                <circle cx="225" cy="390" r="20" fill="none" stroke="#0E9850" stroke-width="0.5" opacity="0.2" class="pulse-ring-2"/>
+                <circle cx="225" cy="342" r="6" fill="#2E7D4F"/>
+                <circle cx="225" cy="342" r="11" fill="none" stroke="#2E7D4F" stroke-width="1" opacity="0.4" class="pulse-ring"/>
+                <circle cx="210" cy="300" r="4" fill="#5AA872" opacity="0.7"/>
+                <circle cx="230" cy="100" r="4" fill="#5AA872" opacity="0.5"/>
+                <circle cx="280" cy="410" r="4" fill="#5AA872" opacity="0.5"/>
+                <circle cx="300" cy="200" r="4" fill="#5AA872" opacity="0.5"/>
+                <circle cx="408" cy="190" r="4" fill="#5AA872" opacity="0.45"/>
+                <text x="238" y="395" fill="#0A7A3C" font-size="9" font-family="Inter, sans-serif" font-weight="700">Singapore HQ</text>
+                <text x="237" y="346" fill="#1A5C35" font-size="9" font-family="Inter, sans-serif" font-weight="600">Johor Bahru</text>
+                <text x="218" y="296" fill="#4A7A60" font-size="8" font-family="Inter, sans-serif" opacity="0.8">Kuala Lumpur ◦</text>
+                <text x="238" y="97"  fill="#4A7A60" font-size="8" font-family="Inter, sans-serif" opacity="0.8">Bangkok ◦</text>
+                <text x="289" y="408" fill="#4A7A60" font-size="8" font-family="Inter, sans-serif" opacity="0.8">Jakarta ◦</text>
+                <text x="309" y="197" fill="#4A7A60" font-size="8" font-family="Inter, sans-serif" opacity="0.8">Ho Chi Minh ◦</text>
+                <text x="418" y="188" fill="#4A7A60" font-size="8" font-family="Inter, sans-serif" opacity="0.8">Manila ◦</text>
+              </svg>
+            </div>
+            <div class="map-legend">
+              <div class="legend-item"><span class="legend-dot active-hq"></span>Singapore HQ (Active)</div>
+              <div class="legend-item"><span class="legend-dot active-centre"></span>Johor Bahru Repair Centre (Active)</div>
+              <div class="legend-item"><span class="legend-dot planned"></span>Planned Expansion</div>
+            </div>
           </div>
-          <div class="em-arrow">→</div>
-          <div class="em-step">
-            <span class="em-time">≤4 hrs</span>
-            <span class="em-desc">On-site arrival with spare parts and specialist engineers</span>
-          </div>
-          <div class="em-arrow">→</div>
-          <div class="em-step">
-            <span class="em-time">≤2 hrs</span>
-            <span class="em-desc">Fault localisation and component repair / replacement</span>
-          </div>
-          <div class="em-arrow">→</div>
-          <div class="em-step">
-            <span class="em-time">Final</span>
-            <span class="em-desc">Compute testing, system restoration, and repair report issued</span>
+          <div class="coverage-details">
+            <div class="coverage-point active">
+              <div class="coverage-point-header">
+                <div class="coverage-icon hq">HQ</div>
+                <div>
+                  <h4>Singapore Headquarters</h4>
+                  <span class="coverage-status">Operational</span>
+                </div>
+              </div>
+              <p><strong>Core:</strong> All of Singapore (full coverage)</p>
+              <p><strong>Remote support:</strong> Malaysia, Indonesia, Thailand, Vietnam, Philippines, Myanmar</p>
+            </div>
+            <div class="coverage-point active">
+              <div class="coverage-point-header">
+                <div class="coverage-icon jb">JB</div>
+                <div>
+                  <h4>Johor Bahru Repair Centre</h4>
+                  <span class="coverage-status">Operational</span>
+                </div>
+              </div>
+              <p><strong>Core:</strong> Johor state (full coverage), Singapore</p>
+              <p><strong>Extended:</strong> Kuala Lumpur, Selangor, Penang, Melaka, Negeri Sembilan</p>
+              <p><strong>SLA Zone:</strong> Tier 1 — response ≤24 hours</p>
+            </div>
+            <div class="coverage-point planned">
+              <div class="coverage-point-header">
+                <div class="coverage-icon plan">→</div>
+                <div>
+                  <h4>Planned Expansion</h4>
+                  <span class="coverage-status planned-tag">Coming Soon</span>
+                </div>
+              </div>
+              <p>Kuala Lumpur · Jakarta · Bangkok · Ho Chi Minh City · Manila</p>
+              <p class="muted">New service points will be announced progressively across 2025–2026.</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- FACILITY -->
+    <section class="section facility" id="facility">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">Repair Facility</div>
+          <h2 class="section-title">Precision Environment for <span class="gradient-text">High-End GPU Repair</span></h2>
+        </div>
+        <div class="facility-grid">
+          <div class="facility-zone">
+            <div class="zone-number">01</div>
+            <h4>Electronics Repair Zone</h4>
+            <p>Anti-static workstations with ground resistance &lt;0.5Ω. Full ESD protection and professional diagnostic equipment at every bench.</p>
+          </div>
+          <div class="facility-zone">
+            <div class="zone-number">02</div>
+            <h4>Dust-Free Soldering Zone</h4>
+            <p>Independent air purification (≤1,000 particles/m³ at ≥0.5μm). Controlled at 23±1°C and 45±3% RH. BGA rework production lines for H-Series and A-Series GPU chips.</p>
+          </div>
+          <div class="facility-zone">
+            <div class="zone-number">03</div>
+            <h4>Inspection & Testing Zone</h4>
+            <p>Self-developed GPU testing platforms. Supports simultaneous diagnosis of multiple server faults, plus continuous 72-hour stability testing.</p>
+          </div>
+          <div class="facility-zone">
+            <div class="zone-number">04</div>
+            <h4>Spare Parts Storage Zone</h4>
+            <p>Intelligent high-bay shelving with WMS management system. Dedicated VRAM chip storage with constant-temperature and humidity-controlled cabinets.</p>
+          </div>
+          <div class="facility-zone">
+            <div class="zone-number">05</div>
+            <h4>Customer Service Centre</h4>
+            <p>Dedicated reception, technical consultation rooms, and a remote diagnostic centre with video conferencing for real-time repair progress tracking.</p>
+          </div>
+          <div class="facility-zone highlight-zone">
+            <div class="zone-number">Core Specs</div>
+            <div class="facility-specs">
+              <div class="spec-item"><span class="spec-val">99%+</span><span class="spec-label">BGA Reballing Yield</span></div>
+              <div class="spec-item"><span class="spec-val">Class 10K</span><span class="spec-label">Dust-Free Workshop</span></div>
+              <div class="spec-item"><span class="spec-val">72hr</span><span class="spec-label">Max Stress Test Duration</span></div>
+              <div class="spec-item"><span class="spec-val">X-Ray + IR</span><span class="spec-label">Circuit Inspection Tools</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="facility-photos">
+          <div class="facility-photo">
+            <img src="/images/pdf_p65_1.jpeg" alt="GPU server diagnostic testing laboratory" loading="lazy" />
+            <span>Diagnostic Testing Lab</span>
+          </div>
+          <div class="facility-photo">
+            <img src="/images/pdf_p65_9.jpeg" alt="Clean-room GPU server testing zone" loading="lazy" />
+            <span>Clean-Room Testing Zone</span>
+          </div>
+          <div class="facility-photo">
+            <img src="/images/pdf_p66_0.jpeg" alt="Parts warehouse and logistics hub" loading="lazy" />
+            <span>Parts Warehouse</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /panel-coverage -->
 
   <!-- ══════════════════════════════════════════
-       SLA TIERS
+       TAB: CASES
   ══════════════════════════════════════════ -->
-  <section class="section sla" id="sla">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-label">Service Tiers</div>
-        <h2 class="section-title">Choose the Right <span class="gradient-text">Level of Support</span></h2>
-        <p class="section-sub">From standard maintenance to dedicated on-site residency — we have a service tier for every scale of operation.</p>
-      </div>
-      <div class="sla-grid">
+  <div class="tab-panel" id="panel-cases">
 
-        <div class="sla-card">
-          <div class="sla-tier-label">Basic</div>
-          <div class="sla-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="1.5"/><path d="M16 10v6l4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-          </div>
-          <p class="sla-positioning">Ideal for operators with fewer than 100 servers or moderate response requirements.</p>
-          <ul class="sla-metrics">
-            <li><span class="metric-label">Initial Response</span><span class="metric-val">≤4 Hours</span></li>
-            <li><span class="metric-label">On-site Arrival</span><span class="metric-val">≤24 Hours</span></li>
-            <li><span class="metric-label">Repair Turnaround</span><span class="metric-val">≤14 Days</span></li>
-            <li><span class="metric-label">Spare Parts</span><span class="metric-val">100% Assured</span></li>
-            <li><span class="metric-label">Warranty</span><span class="metric-val">30 Days</span></li>
-          </ul>
-          <a href="#contact" class="btn btn-outline">Enquire Now</a>
+    <section class="section cases" id="cases">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">Service Cases</div>
+          <h2 class="section-title">Real Results, <span class="gradient-text">Proven Outcomes</span></h2>
+          <p class="section-sub">Representative engagements demonstrating our technical capability and service delivery.</p>
         </div>
+        <div class="cases-grid">
 
-        <div class="sla-card featured">
-          <div class="sla-recommended">Recommended</div>
-          <div class="sla-tier-label">Pro</div>
-          <div class="sla-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 3l3.5 7 7.5 1.1-5.5 5.4 1.3 7.5L16 21l-6.8 3.6 1.3-7.5L5 11.1l7.5-1.1L16 3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          <div class="case-card">
+            <div class="case-tag">H2XX SXM5 GPU</div>
+            <h3 class="case-title">Baseboard Fault Repair — AI Data Centre, Johor Bahru</h3>
+            <div class="case-meta">
+              <span>Response: 30 min</span>
+              <span>On-site: 8 hrs</span>
+              <span>Outcome: Full recovery</span>
+            </div>
+            <p>An H2XX module was unable to operate normally after extended high-load running without scheduled maintenance. Remote diagnosis identified a likely baseboard fault. Four senior engineers arrived on-site within 8 hours.</p>
+            <div class="case-faults">
+              <div class="case-fault"><strong>Fault 1:</strong> Virtual solder joints — microscopic localisation → precision constant-temperature soldering → re-inspection.</div>
+              <div class="case-fault"><strong>Fault 2:</strong> Short-circuit line routing — abnormal current path traced, damaged circuit removed, jumper-wire reconnection and low-voltage verification.</div>
+            </div>
+            <div class="case-result">
+              <div class="result-kpi">
+                <span class="kpi-val">+90%</span>
+                <span class="kpi-label">Stability improvement</span>
+              </div>
+              <div class="result-kpi">
+                <span class="kpi-val">72hr</span>
+                <span class="kpi-label">Zero-anomaly stress test</span>
+              </div>
+            </div>
           </div>
-          <p class="sla-positioning">For large-scale operators (100+ servers) requiring permanent on-site engineering support.</p>
-          <ul class="sla-metrics">
-            <li><span class="metric-label">Initial Response</span><span class="metric-val">≤2 Hours</span></li>
-            <li><span class="metric-label">On-site Arrival</span><span class="metric-val">≤10 Hours</span></li>
-            <li><span class="metric-label">Repair Turnaround</span><span class="metric-val">≤7 Days</span></li>
-            <li><span class="metric-label">Spare Parts</span><span class="metric-val">100% Assured</span></li>
-            <li><span class="metric-label">Warranty</span><span class="metric-val">60 Days</span></li>
-          </ul>
-          <a href="#contact" class="btn btn-primary">Enquire Now</a>
-        </div>
 
-        <div class="sla-card">
-          <div class="sla-tier-label">MAX</div>
-          <div class="sla-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 4l3 6h7l-5.5 4 2 7L16 17.5 9.5 21l2-7L6 10h7l3-6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="16" cy="16" r="3" stroke="currentColor" stroke-width="1.3"/></svg>
+          <div class="case-card">
+            <div class="case-tag">Large-Scale Deployment</div>
+            <h3 class="case-title">Batch Maintenance — 1,000-Server GPU Cluster</h3>
+            <div class="case-meta">
+              <span>Scale: ~10,000 GPU cards</span>
+              <span>Resident engineers: 2</span>
+              <span>Contract: Long-term</span>
+            </div>
+            <p>A hyperscale operator's GPU cluster had a 10% device failure rate creating security risks. Vertex Services deployed resident O&M engineers, provided seasonal inspection, fault-order analysis, on-site part replacement, and comprehensive training for the customer's own team.</p>
+            <div class="case-faults">
+              <div class="case-fault"><strong>Training delivered:</strong> GPU architecture, fault localisation, disassembly/assembly, hardware identification, and behavioural deviation correction.</div>
+            </div>
+            <div class="case-result">
+              <div class="result-kpi">
+                <span class="kpi-val">10% → 3%</span>
+                <span class="kpi-label">Fault rate reduction</span>
+              </div>
+              <div class="result-kpi">
+                <span class="kpi-val">&lt;8hr</span>
+                <span class="kpi-label">Non-cluster interruptions</span>
+              </div>
+            </div>
           </div>
-          <p class="sla-positioning">Premium dedicated service for mission-critical AI data centres and hyperscale operators.</p>
-          <ul class="sla-metrics">
-            <li><span class="metric-label">Initial Response</span><span class="metric-val">≤30 Minutes</span></li>
-            <li><span class="metric-label">On-site Arrival</span><span class="metric-val">≤4 Hours</span></li>
-            <li><span class="metric-label">Repair Turnaround</span><span class="metric-val">≤5 Days</span></li>
-            <li><span class="metric-label">Spare Parts</span><span class="metric-val">100% Assured</span></li>
-            <li><span class="metric-label">Warranty</span><span class="metric-val">180 Days</span></li>
-          </ul>
-          <a href="#contact" class="btn btn-outline">Enquire Now</a>
-        </div>
 
-      </div>
+          <div class="case-card">
+            <div class="case-tag">H8XX SXM5 GPU</div>
+            <h3 class="case-title">VRAM Chip Replacement — Data Centre Efficiency Recovery</h3>
+            <div class="case-meta">
+              <span>Response: 30 min</span>
+              <span>On-site: 6 hrs</span>
+              <span>Cause: Voltage spike</span>
+            </div>
+            <p>Damage to an H8XX module caused a sharp decline in data-processing efficiency. Error log analysis and initial data checks pointed to a VRAM chip abnormality. Specialised inspection confirmed a core component fault caused by voltage fluctuation.</p>
+            <div class="case-faults">
+              <div class="case-fault"><strong>Resolution:</strong> Anti-static environment repair, precision VRAM chip removal and replacement, system reconfiguration, and comprehensive after-sales lifecycle management mechanism established.</div>
+            </div>
+            <div class="case-result">
+              <div class="result-kpi">
+                <span class="kpi-val">100%</span>
+                <span class="kpi-label">Efficiency recovery</span>
+              </div>
+              <div class="result-kpi">
+                <span class="kpi-val">Lifecycle</span>
+                <span class="kpi-label">Asset management set up</span>
+              </div>
+            </div>
+          </div>
 
-      <!-- Fault Severity Grid -->
-      <div class="fault-table">
-        <h3 class="fault-table-title">Fault Response Standards</h3>
-        <div class="fault-grid">
-          <div class="fault-row header">
-            <span>Level</span><span>Definition</span><span>Initial Response</span><span>Resolution Target</span>
-          </div>
-          <div class="fault-row p0">
-            <span class="fault-level">P0 <em>Critical</em></span>
-            <span>Full GPU cluster outage, data loss, critical service downtime</span>
-            <span class="fault-time">≤10 min</span>
-            <span class="fault-time">≤2 hrs</span>
-          </div>
-          <div class="fault-row p1">
-            <span class="fault-level">P1 <em>Severe</em></span>
-            <span>More than 50% GPUs unavailable, storage anomalies, driver conflicts</span>
-            <span class="fault-time">≤20 min</span>
-            <span class="fault-time">≤4 hrs</span>
-          </div>
-          <div class="fault-row p2">
-            <span class="fault-level">P2 <em>General</em></span>
-            <span>Single GPU down, CUDA errors, &gt;20% performance degradation</span>
-            <span class="fault-time">≤1 hr</span>
-            <span class="fault-time">≤12 hrs</span>
-          </div>
-          <div class="fault-row p3">
-            <span class="fault-level">P3 <em>Advisory</em></span>
-            <span>Temperature alerts, NVLink delays, dev/test environment issues</span>
-            <span class="fault-time">≤2 hrs</span>
-            <span class="fault-time">≤48 hrs</span>
-          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+  </div><!-- /panel-cases -->
 
   <!-- ══════════════════════════════════════════
-       COVERAGE
+       TAB: CONTACT
   ══════════════════════════════════════════ -->
-  <section class="section coverage" id="coverage">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-label">Service Coverage</div>
-        <h2 class="section-title">Rooted in Singapore, <span class="gradient-text">Reaching Across SEA</span></h2>
-        <p class="section-sub">Our service network is anchored in Singapore with our first repair centre in Johor Bahru, expanding progressively across Southeast Asia.</p>
-      </div>
-      <div class="coverage-layout">
-        <div class="coverage-map-area">
-          <div class="sea-map">
-            <!-- SEA decorative map SVG -->
-            <svg viewBox="0 0 560 480" fill="none" xmlns="http://www.w3.org/2000/svg" class="map-svg">
-              <!-- Grid Lines -->
-              <defs>
-                <pattern id="mapGrid" width="40" height="40" patternUnits="userSpaceOnUse">
-                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(0,212,255,0.06)" stroke-width="0.5"/>
-                </pattern>
-                <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stop-color="#00D4FF" stop-opacity="0.5"/>
-                  <stop offset="100%" stop-color="#00D4FF" stop-opacity="0"/>
-                </radialGradient>
-              </defs>
-              <rect width="560" height="480" fill="url(#mapGrid)"/>
+  <div class="tab-panel" id="panel-contact">
 
-              <!-- Malaysia Peninsula rough shape -->
-              <path d="M200 180 L230 160 L260 155 L280 170 L290 200 L285 240 L270 270 L255 290 L240 310 L225 330 L215 350 L210 370 L205 380" fill="rgba(124,58,237,0.12)" stroke="rgba(124,58,237,0.3)" stroke-width="1"/>
-              <!-- Singapore -->
-              <ellipse cx="225" cy="390" rx="12" ry="6" fill="rgba(0,212,255,0.2)" stroke="rgba(0,212,255,0.5)" stroke-width="1"/>
-              <!-- Indonesia (Sumatra rough) -->
-              <path d="M100 300 L140 260 L180 260 L220 290 L240 320 L260 350 L250 370 L220 380 L190 370 L160 360 L130 350 L110 330 L100 300z" fill="rgba(0,212,255,0.06)" stroke="rgba(0,212,255,0.15)" stroke-width="1"/>
-              <!-- Indonesia Java rough -->
-              <path d="M210 400 L260 395 L310 400 L340 410 L320 420 L270 422 L230 418 L210 410z" fill="rgba(0,212,255,0.06)" stroke="rgba(0,212,255,0.12)" stroke-width="1"/>
-              <!-- Thailand rough -->
-              <path d="M200 80 L220 60 L235 55 L245 70 L250 100 L255 130 L250 155 L235 165 L215 160 L205 140 L200 110z" fill="rgba(124,58,237,0.08)" stroke="rgba(124,58,237,0.2)" stroke-width="1"/>
-              <!-- Vietnam rough -->
-              <path d="M290 70 L310 60 L325 80 L320 120 L310 160 L300 195 L285 205 L278 185 L282 150 L290 110 L295 80z" fill="rgba(0,255,136,0.07)" stroke="rgba(0,255,136,0.15)" stroke-width="1"/>
-              <!-- Philippines rough -->
-              <path d="M390 120 L405 110 L415 130 L410 155 L400 165 L390 155 L385 135z" fill="rgba(0,212,255,0.07)" stroke="rgba(0,212,255,0.15)" stroke-width="1"/>
-              <path d="M405 175 L420 165 L430 185 L425 210 L410 215 L400 200 L405 180z" fill="rgba(0,212,255,0.07)" stroke="rgba(0,212,255,0.15)" stroke-width="1"/>
-
-              <!-- Connection Lines -->
-              <line x1="225" y1="390" x2="225" y2="342" stroke="rgba(0,212,255,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
-              <line x1="225" y1="390" x2="155" y2="330" stroke="rgba(0,212,255,0.2)" stroke-width="1" stroke-dasharray="4,3"/>
-              <line x1="225" y1="390" x2="280" y2="330" stroke="rgba(0,212,255,0.2)" stroke-width="1" stroke-dasharray="4,3"/>
-              <line x1="225" y1="390" x2="230" y2="100" stroke="rgba(124,58,237,0.2)" stroke-width="1" stroke-dasharray="4,3"/>
-              <line x1="225" y1="390" x2="305" y2="130" stroke="rgba(124,58,237,0.15)" stroke-width="1" stroke-dasharray="4,3"/>
-              <line x1="225" y1="390" x2="408" y2="190" stroke="rgba(0,255,136,0.15)" stroke-width="1" stroke-dasharray="4,3"/>
-
-              <!-- Glow halos for active nodes -->
-              <circle cx="225" cy="342" r="20" fill="url(#nodeGlow)" opacity="0.7"/>
-              <circle cx="225" cy="390" r="24" fill="url(#nodeGlow)" opacity="0.9"/>
-
-              <!-- Nodes: Singapore (active HQ) -->
-              <circle cx="225" cy="390" r="8" fill="#00D4FF" opacity="0.9"/>
-              <circle cx="225" cy="390" r="14" fill="none" stroke="#00D4FF" stroke-width="1" opacity="0.5" class="pulse-ring"/>
-              <circle cx="225" cy="390" r="20" fill="none" stroke="#00D4FF" stroke-width="0.5" opacity="0.25" class="pulse-ring-2"/>
-
-              <!-- Johor Bahru (active first centre) -->
-              <circle cx="225" cy="342" r="6" fill="#7C3AED" opacity="0.9"/>
-              <circle cx="225" cy="342" r="11" fill="none" stroke="#7C3AED" stroke-width="1" opacity="0.5" class="pulse-ring"/>
-
-              <!-- KL planned -->
-              <circle cx="210" cy="300" r="4" fill="#00FF88" opacity="0.6"/>
-              <!-- Bangkok planned -->
-              <circle cx="230" cy="100" r="4" fill="#00FF88" opacity="0.4"/>
-              <!-- Jakarta planned -->
-              <circle cx="280" cy="410" r="4" fill="#00FF88" opacity="0.4"/>
-              <!-- Ho Chi Minh planned -->
-              <circle cx="300" cy="200" r="4" fill="#00FF88" opacity="0.4"/>
-              <!-- Manila planned -->
-              <circle cx="408" cy="190" r="4" fill="#00FF88" opacity="0.35"/>
-
-              <!-- Labels -->
-              <text x="238" y="395" fill="#00D4FF" font-size="9" font-family="Inter, sans-serif" font-weight="600">Singapore HQ</text>
-              <text x="237" y="346" fill="#A78BFA" font-size="9" font-family="Inter, sans-serif" font-weight="500">Johor Bahru</text>
-              <text x="218" y="296" fill="#4ADE80" font-size="8" font-family="Inter, sans-serif" opacity="0.7">Kuala Lumpur ◦</text>
-              <text x="238" y="97" fill="#4ADE80" font-size="8" font-family="Inter, sans-serif" opacity="0.7">Bangkok ◦</text>
-              <text x="289" y="408" fill="#4ADE80" font-size="8" font-family="Inter, sans-serif" opacity="0.7">Jakarta ◦</text>
-              <text x="309" y="197" fill="#4ADE80" font-size="8" font-family="Inter, sans-serif" opacity="0.7">Ho Chi Minh ◦</text>
-              <text x="418" y="188" fill="#4ADE80" font-size="8" font-family="Inter, sans-serif" opacity="0.7">Manila ◦</text>
-            </svg>
-          </div>
-          <div class="map-legend">
-            <div class="legend-item"><span class="legend-dot active-hq"></span>Singapore HQ (Active)</div>
-            <div class="legend-item"><span class="legend-dot active-centre"></span>Johor Bahru Repair Centre (Active)</div>
-            <div class="legend-item"><span class="legend-dot planned"></span>Planned Expansion</div>
-          </div>
-        </div>
-        <div class="coverage-details">
-          <div class="coverage-point active">
-            <div class="coverage-point-header">
-              <div class="coverage-icon hq">HQ</div>
-              <div>
-                <h4>Singapore Headquarters</h4>
-                <span class="coverage-status">Operational</span>
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="section-label">Get In Touch</div>
+            <h2 class="section-title">Ready to Protect Your <span class="gradient-text">AI Infrastructure?</span></h2>
+            <p>Whether you need an emergency repair, a maintenance contract, or just an initial consultation — our team responds within 24 hours.</p>
+            <div class="contact-details">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2C5.7 2 3 4.7 3 8c0 4.5 6 10 6 10s6-5.5 6-10c0-3.3-2.7-6-6-6z" stroke="currentColor" stroke-width="1.3"/><circle cx="9" cy="8" r="2" stroke="currentColor" stroke-width="1.3"/></svg>
+                </div>
+                <div>
+                  <strong>Headquarters</strong>
+                  <p>Singapore</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2C5.7 2 3 4.7 3 8c0 4.5 6 10 6 10s6-5.5 6-10c0-3.3-2.7-6-6-6z" stroke="currentColor" stroke-width="1.3"/><circle cx="9" cy="8" r="2" stroke="currentColor" stroke-width="1.3"/></svg>
+                </div>
+                <div>
+                  <strong>Repair Centre</strong>
+                  <p>Johor Bahru, Malaysia</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 4h12a1 1 0 011 1v8a1 1 0 01-1 1H3a1 1 0 01-1-1V5a1 1 0 011-1z" stroke="currentColor" stroke-width="1.3"/><path d="M2 5l7 5 7-5" stroke="currentColor" stroke-width="1.3"/></svg>
+                </div>
+                <div>
+                  <strong>Email</strong>
+                  <p>enquiry@vertexservice.ai</p>
+                </div>
               </div>
             </div>
-            <p><strong>Core:</strong> All of Singapore (full coverage)</p>
-            <p><strong>Remote support:</strong> Malaysia, Indonesia, Thailand, Vietnam, Philippines, Myanmar</p>
-          </div>
-          <div class="coverage-point active">
-            <div class="coverage-point-header">
-              <div class="coverage-icon jb">JB</div>
-              <div>
-                <h4>Johor Bahru Repair Centre</h4>
-                <span class="coverage-status">Operational — First Repair Centre</span>
+            <div class="response-promise">
+              <div class="promise-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.3"/><path d="M7 10l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
+              We respond to all enquiries within <strong>24 hours</strong>. Emergency support is available around the clock.
             </div>
-            <p><strong>Core:</strong> Johor state (full coverage), Singapore</p>
-            <p><strong>Extended:</strong> Kuala Lumpur, Selangor, Penang, Melaka, Negeri Sembilan</p>
-            <p><strong>SLA Zone:</strong> Tier 1 — response ≤24 hours</p>
           </div>
-          <div class="coverage-point planned">
-            <div class="coverage-point-header">
-              <div class="coverage-icon plan">→</div>
-              <div>
-                <h4>Planned Expansion</h4>
-                <span class="coverage-status planned-tag">Coming Soon</span>
+          <div class="contact-form-wrap">
+            <form class="contact-form" id="contactForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Full Name *</label>
+                  <input type="text" id="name" name="name" placeholder="Your name" required />
+                </div>
+                <div class="form-group">
+                  <label for="email">Business Email *</label>
+                  <input type="email" id="email" name="email" placeholder="you@company.com" required />
+                </div>
               </div>
-            </div>
-            <p>Kuala Lumpur · Jakarta · Bangkok · Ho Chi Minh City · Manila</p>
-            <p class="muted">New service points will be announced progressively across 2025–2026.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       FACILITY
-  ══════════════════════════════════════════ -->
-  <section class="section facility" id="facility">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-label">Repair Facility</div>
-        <h2 class="section-title">Precision Environment for <span class="gradient-text">High-End GPU Repair</span></h2>
-      </div>
-      <div class="facility-grid">
-        <div class="facility-zone">
-          <div class="zone-number">01</div>
-          <h4>Electronics Repair Zone</h4>
-          <p>Anti-static workstations with ground resistance &lt;0.5Ω. Full ESD protection and professional diagnostic equipment at every bench.</p>
-        </div>
-        <div class="facility-zone">
-          <div class="zone-number">02</div>
-          <h4>Dust-Free Soldering Zone</h4>
-          <p>Independent air purification (≤1,000 particles/m³ at ≥0.5μm). Controlled at 23±1°C and 45±3% RH. BGA rework production lines for H-Series and A-Series GPU chips.</p>
-        </div>
-        <div class="facility-zone">
-          <div class="zone-number">03</div>
-          <h4>Inspection & Testing Zone</h4>
-          <p>Self-developed GPU testing platforms. Supports simultaneous diagnosis of multiple server faults, plus continuous 72-hour stability testing.</p>
-        </div>
-        <div class="facility-zone">
-          <div class="zone-number">04</div>
-          <h4>Spare Parts Storage Zone</h4>
-          <p>Intelligent high-bay shelving with WMS management system. Dedicated VRAM chip storage with constant-temperature and humidity-controlled cabinets.</p>
-        </div>
-        <div class="facility-zone">
-          <div class="zone-number">05</div>
-          <h4>Customer Service Centre</h4>
-          <p>Dedicated reception, technical consultation rooms, and a remote diagnostic centre with video conferencing for real-time repair progress tracking.</p>
-        </div>
-        <div class="facility-zone highlight-zone">
-          <div class="zone-number">Core Specs</div>
-          <div class="facility-specs">
-            <div class="spec-item"><span class="spec-val">99%+</span><span class="spec-label">BGA Reballing Yield</span></div>
-            <div class="spec-item"><span class="spec-val">Class 10K</span><span class="spec-label">Dust-Free Workshop</span></div>
-            <div class="spec-item"><span class="spec-val">72hr</span><span class="spec-label">Max Stress Test Duration</span></div>
-            <div class="spec-item"><span class="spec-val">X-Ray + IR</span><span class="spec-label">Circuit Inspection Tools</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       CASE STUDIES
-  ══════════════════════════════════════════ -->
-  <section class="section cases" id="cases">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-label">Service Cases</div>
-        <h2 class="section-title">Real Results, <span class="gradient-text">Proven Outcomes</span></h2>
-        <p class="section-sub">Representative engagements demonstrating our technical capability and service delivery.</p>
-      </div>
-      <div class="cases-grid">
-
-        <div class="case-card">
-          <div class="case-tag">H2XX SXM5 GPU</div>
-          <h3 class="case-title">Baseboard Fault Repair — AI Data Centre, Johor Bahru</h3>
-          <div class="case-meta">
-            <span>Response: 30 min</span>
-            <span>On-site: 8 hrs</span>
-            <span>Outcome: Full recovery</span>
-          </div>
-          <p>An H2XX module was unable to operate normally after extended high-load running without scheduled maintenance. Remote diagnosis identified a likely baseboard fault. Four senior engineers arrived on-site within 8 hours.</p>
-          <div class="case-faults">
-            <div class="case-fault"><strong>Fault 1:</strong> Virtual solder joints — microscopic localisation → precision constant-temperature soldering → re-inspection.</div>
-            <div class="case-fault"><strong>Fault 2:</strong> Short-circuit line routing — abnormal current path traced, damaged circuit removed, jumper-wire reconnection and low-voltage verification.</div>
-          </div>
-          <div class="case-result">
-            <div class="result-kpi">
-              <span class="kpi-val">+90%</span>
-              <span class="kpi-label">Stability improvement</span>
-            </div>
-            <div class="result-kpi">
-              <span class="kpi-val">72hr</span>
-              <span class="kpi-label">Zero-anomaly stress test</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="case-card">
-          <div class="case-tag">Large-Scale Deployment</div>
-          <h3 class="case-title">Batch Maintenance — 1,000-Server GPU Cluster</h3>
-          <div class="case-meta">
-            <span>Scale: ~10,000 GPU cards</span>
-            <span>Resident engineers: 2</span>
-            <span>Contract: Long-term</span>
-          </div>
-          <p>A hyperscale operator's GPU cluster had a 10% device failure rate creating security risks. Vertex Services deployed resident O&M engineers, provided seasonal inspection, fault-order analysis, on-site part replacement, and comprehensive training for the customer's own team.</p>
-          <div class="case-faults">
-            <div class="case-fault"><strong>Training delivered:</strong> GPU architecture, fault localisation, disassembly/assembly, hardware identification, and behavioural deviation correction.</div>
-          </div>
-          <div class="case-result">
-            <div class="result-kpi">
-              <span class="kpi-val">10% → 3%</span>
-              <span class="kpi-label">Fault rate reduction</span>
-            </div>
-            <div class="result-kpi">
-              <span class="kpi-val">&lt;8hr</span>
-              <span class="kpi-label">Non-cluster interruptions</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="case-card">
-          <div class="case-tag">H8XX SXM5 GPU</div>
-          <h3 class="case-title">VRAM Chip Replacement — Data Centre Efficiency Recovery</h3>
-          <div class="case-meta">
-            <span>Response: 30 min</span>
-            <span>On-site: 6 hrs</span>
-            <span>Cause: Voltage spike</span>
-          </div>
-          <p>Damage to an H8XX module caused a sharp decline in data-processing efficiency. Error log analysis and initial data checks pointed to a VRAM chip abnormality. Specialised inspection confirmed a core component fault caused by voltage fluctuation.</p>
-          <div class="case-faults">
-            <div class="case-fault"><strong>Resolution:</strong> Anti-static environment repair, precision VRAM chip removal and replacement, system reconfiguration, and comprehensive after-sales lifecycle management mechanism established.</div>
-          </div>
-          <div class="case-result">
-            <div class="result-kpi">
-              <span class="kpi-val">100%</span>
-              <span class="kpi-label">Efficiency recovery</span>
-            </div>
-            <div class="result-kpi">
-              <span class="kpi-val">Lifecycle</span>
-              <span class="kpi-label">Asset management set up</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       CONTACT
-  ══════════════════════════════════════════ -->
-  <section class="section contact" id="contact">
-    <div class="container">
-      <div class="contact-grid">
-        <div class="contact-info">
-          <div class="section-label">Get In Touch</div>
-          <h2 class="section-title">Ready to Protect Your <span class="gradient-text">AI Infrastructure?</span></h2>
-          <p>Whether you need an emergency repair, a maintenance contract, or just an initial consultation — our team responds within 24 hours.</p>
-          <div class="contact-details">
-            <div class="contact-item">
-              <div class="contact-icon">
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2C5.7 2 3 4.7 3 8c0 4.5 6 10 6 10s6-5.5 6-10c0-3.3-2.7-6-6-6z" stroke="currentColor" stroke-width="1.3"/><circle cx="9" cy="8" r="2" stroke="currentColor" stroke-width="1.3"/></svg>
-              </div>
-              <div>
-                <strong>Headquarters</strong>
-                <p>Singapore</p>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-icon">
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2C5.7 2 3 4.7 3 8c0 4.5 6 10 6 10s6-5.5 6-10c0-3.3-2.7-6-6-6z" stroke="currentColor" stroke-width="1.3"/><circle cx="9" cy="8" r="2" stroke="currentColor" stroke-width="1.3"/></svg>
-              </div>
-              <div>
-                <strong>First Repair Centre</strong>
-                <p>Johor Bahru, Malaysia</p>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-icon">
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 4h12a1 1 0 011 1v8a1 1 0 01-1 1H3a1 1 0 01-1-1V5a1 1 0 011-1z" stroke="currentColor" stroke-width="1.3"/><path d="M2 5l7 5 7-5" stroke="currentColor" stroke-width="1.3"/></svg>
-              </div>
-              <div>
-                <strong>Email</strong>
-                <p>hello@vertexservices.sg</p>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-icon">
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 3h3l1.5 4-2 1.5s1 3 4 4l1.5-2L15 12v3s-8 2-12-9V3z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
-              </div>
-              <div>
-                <strong>24/7 Emergency Hotline</strong>
-                <p>+65 0000 0000</p>
-              </div>
-            </div>
-          </div>
-          <div class="response-promise">
-            <div class="promise-icon">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.3"/><path d="M7 10l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            We respond to all enquiries within <strong>24 hours</strong>. Emergency support is available around the clock.
-          </div>
-        </div>
-        <div class="contact-form-wrap">
-          <form class="contact-form" id="contactForm">
-            <div class="form-row">
               <div class="form-group">
-                <label for="name">Full Name *</label>
-                <input type="text" id="name" name="name" placeholder="Your name" required />
+                <label for="company">Company / Organisation</label>
+                <input type="text" id="company" name="company" placeholder="Company name" />
               </div>
               <div class="form-group">
-                <label for="email">Business Email *</label>
-                <input type="email" id="email" name="email" placeholder="you@company.com" required />
+                <label for="service">Service Required</label>
+                <select id="service" name="service">
+                  <option value="">Select a service...</option>
+                  <option>GPU / AI Hardware Repair</option>
+                  <option>Scheduled Maintenance Contract</option>
+                  <option>On-site O&amp;M Service</option>
+                  <option>Emergency Support</option>
+                  <option>Extended Warranty</option>
+                  <option>Spare Parts Supply</option>
+                  <option>General Enquiry</option>
+                </select>
               </div>
-            </div>
-            <div class="form-group">
-              <label for="company">Company / Organisation</label>
-              <input type="text" id="company" name="company" placeholder="Company name" />
-            </div>
-            <div class="form-group">
-              <label for="service">Service Required</label>
-              <select id="service" name="service">
-                <option value="">Select a service...</option>
-                <option>GPU / AI Hardware Repair</option>
-                <option>Scheduled Maintenance Contract</option>
-                <option>On-site O&amp;M Service</option>
-                <option>Emergency Support</option>
-                <option>Extended Warranty</option>
-                <option>Spare Parts Supply</option>
-                <option>General Enquiry</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="message">Message *</label>
-              <textarea id="message" name="message" rows="4" placeholder="Describe your equipment, fault symptoms, or service requirement..." required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
-              <span class="btn-text">Send Enquiry</span>
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M11 5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <div class="form-success" id="formSuccess">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="#00FF88" stroke-width="1.3"/><path d="M7 10l2 2 4-4" stroke="#00FF88" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span id="formSuccessMsg"></span>
-            </div>
-          </form>
+              <div class="form-group">
+                <label for="message">Message *</label>
+                <textarea id="message" name="message" rows="4" placeholder="Describe your equipment, fault symptoms, or service requirement..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+                <span class="btn-text">Send Enquiry</span>
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M11 5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="form-success" id="formSuccess">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="var(--green)" stroke-width="1.3"/><path d="M7 10l2 2 4-4" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span id="formSuccessMsg"></span>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+  </div><!-- /panel-contact -->
+
+  </main>
 
   <!-- ══════════════════════════════════════════
        FOOTER
@@ -849,18 +841,11 @@
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <a href="#home" class="nav-logo">
+          <a href="#" class="nav-logo" data-goto-tab="home">
             <svg class="logo-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <polygon points="20,2 38,34 2,34" fill="none" stroke="url(#fgrad1)" stroke-width="2.5" stroke-linejoin="round"/>
-              <polygon points="20,10 32,30 8,30" fill="url(#fgrad2)" opacity="0.15"/>
-              <defs>
-                <linearGradient id="fgrad1" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#00D4FF"/><stop offset="100%" stop-color="#7C3AED"/>
-                </linearGradient>
-                <linearGradient id="fgrad2" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#00D4FF"/><stop offset="100%" stop-color="#7C3AED"/>
-                </linearGradient>
-              </defs>
+              <polygon points="20,2 38,34 2,34" fill="none" stroke="#1FC870" stroke-width="2.5" stroke-linejoin="round"/>
+              <polygon points="20,10 32,30 8,30" fill="#1FC870" opacity="0.12"/>
+              <line x1="20" y1="2" x2="20" y2="34" stroke="#1FC870" stroke-width="1.5" opacity="0.5"/>
             </svg>
             <span class="logo-text">VERTEX<span class="logo-accent">SERVICES</span></span>
           </a>
@@ -871,21 +856,21 @@
           <div class="footer-col">
             <h5>Services</h5>
             <ul>
-              <li><a href="#services">GPU Hardware Repair</a></li>
-              <li><a href="#services">Software Maintenance</a></li>
-              <li><a href="#services">On-site O&amp;M</a></li>
-              <li><a href="#services">Spare Parts</a></li>
-              <li><a href="#services">Extended Warranty</a></li>
+              <li><button class="footer-link-btn" data-goto-tab="services">GPU Hardware Repair</button></li>
+              <li><button class="footer-link-btn" data-goto-tab="services">Software Maintenance</button></li>
+              <li><button class="footer-link-btn" data-goto-tab="services">On-site O&amp;M</button></li>
+              <li><button class="footer-link-btn" data-goto-tab="services">Spare Parts</button></li>
+              <li><button class="footer-link-btn" data-goto-tab="services">Extended Warranty</button></li>
             </ul>
           </div>
           <div class="footer-col">
             <h5>Company</h5>
             <ul>
-              <li><a href="#about">About Us</a></li>
-              <li><a href="#process">Our Process</a></li>
-              <li><a href="#coverage">Coverage</a></li>
-              <li><a href="#cases">Case Studies</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><button class="footer-link-btn" data-goto-tab="home">About Us</button></li>
+              <li><button class="footer-link-btn" data-goto-tab="services">Our Process</button></li>
+              <li><button class="footer-link-btn" data-goto-tab="coverage">Coverage</button></li>
+              <li><button class="footer-link-btn" data-goto-tab="cases">Case Studies</button></li>
+              <li><button class="footer-link-btn" data-goto-tab="contact">Contact</button></li>
             </ul>
           </div>
           <div class="footer-col">
@@ -904,8 +889,8 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 Vertex Services Pte. Ltd. · Singapore · All rights reserved.</p>
-        <p class="footer-mono">hello@vertexservices.sg &nbsp;|&nbsp; +65 0000 0000</p>
+        <p>&copy; 2026 Vertex Infrastructure Services Pte. Ltd. · Singapore · All rights reserved.</p>
+        <p class="footer-mono">enquiry@vertexservice.ai</p>
       </div>
     </div>
   </footer>
