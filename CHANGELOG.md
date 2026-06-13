@@ -408,6 +408,58 @@ Before: `72px` (inherited from `.section` mobile rule). After: `120px` (+48px).
 
 ---
 
+## Version 8 — Careers Page, Prominent Coverage Labels
+
+**Brief from user:** Replace Cases tab with a Careers page, and make the "HQ" / "Repair Centre" group labels on the Coverage tab bigger and more prominent.
+
+### Coverage — Group Label Styling
+
+| Property | Before | After |
+|---|---|---|
+| `font-size` | `0.7rem` | `0.82rem` |
+| `color` | `var(--text-dim)` (faint grey) | `var(--accent)` (`#0E9850` green) |
+
+Labels now match the accent-coloured `.section-label` pattern used across the rest of the site, making "HQ" and "REPAIR CENTRE" clearly readable as group headers.
+
+### Cases Tab → Careers Tab
+
+The "Cases" nav tab was removed and replaced with a "Careers" tab (`data-tab="career"`, panel `#panel-career`). The footer "Case Studies" link was updated to "Careers" accordingly.
+
+**Career page structure:**
+
+1. **Section header** — "Build the Future of AI Infrastructure"
+2. **Value pillars** (reuses `.about-pillars` + `.pillar` classes) — 3 items:
+   - Frontier Hardware — hands-on with NVIDIA H-Series/A-Series GPU modules
+   - Regional Growth — expand with us into JB, Bangkok, and beyond
+   - Real-World Impact — mission-critical work with visible outcomes
+3. **Open Positions** — 2-column grid of 4 job cards, each with location tag, type tag, description, and `mailto:` apply link:
+   - GPU Repair Technician (Johor Bahru)
+   - Field Service Engineer (Singapore / Regional)
+   - Technical Operations Lead (Singapore)
+   - Business Development Executive (Singapore)
+4. **Open-application CTA** — "Don't see your role? Send your CV to enquiry@vertexservice.ai"
+
+**New CSS classes added:**
+
+| Class | Purpose |
+|---|---|
+| `.careers-values` | Wrapper for the value pillars (`margin-bottom: 56px`) |
+| `.careers-section-label` | "Open Positions" sub-header in green mono |
+| `.careers-grid` | 2-column job cards grid (1-column on mobile ≤768px) |
+| `.career-card` | Individual job card (flex column, gap, border, shadow) |
+| `.career-card-top` | Title + tags grouping within card |
+| `.career-title` | Job title (`1.1rem`, `var(--text)`) |
+| `.career-tags` | Flex row of tag pills |
+| `.career-tag` | Neutral location pill (mono, rounded, `var(--bg-section)` bg) |
+| `.career-tag.type-tag` | "Full-time" pill in accent green |
+| `.career-apply` | Mono green link "Apply for this role →" |
+| `.careers-cta` | Centred open-application block at bottom of page |
+| `.careers-email` | Green email link within CTA |
+
+Mobile responsive: `#panel-career > .section:first-child` gets `padding-top: 120px` (same breathing-space rule as Services and Coverage); `.careers-grid` collapses to single column.
+
+---
+
 ## File Structure
 
 ```
