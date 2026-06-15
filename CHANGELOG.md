@@ -460,6 +460,119 @@ Mobile responsive: `#panel-career > .section:first-child` gets `padding-top: 120
 
 ---
 
+## Version 9 — Services Rewrite from Business Scope & Stats Cleanup
+
+**Brief from user:** Remove "50+ engineers" stat from hero. Replace all Services tab content (service cards + process section) with information from the `business scope.pptx` slide deck.
+
+### Hero Stats Bar
+
+| Change | Detail |
+|---|---|
+| Removed stat | "50+ Engineers" `stat-item` and its adjacent `stat-divider` removed |
+| Remaining stats | 85%+ Chip Repair Success Rate · 60-Day Warranty Coverage · 24/7 Support Available |
+
+### Services Section — Section Header
+
+| Element | Before | After |
+|---|---|---|
+| Title | "Full-Stack Hardware & Software **Expertise**" | "Full-Stack **Technical Service Loop**" |
+| Subtitle | Generic closed-loop summary | PPTX Slide 1 language: chip-level repair → software optimisation → rigorous validation → intelligent O&M → agile supply |
+
+### Services Grid — 6 Cards Updated
+
+All six service card descriptions were rewritten using language directly from the business scope PPTX slides:
+
+| Card | Key Changes |
+|---|---|
+| **GPU Core Component Repair** | Added "NVIDIA A1XX and H1XX" model naming; separated chip-level vs module-level; added "<48-hour module turnaround"; tag updated to ">85% Success Rate" |
+| **Whole-Machine Diagnosis & Restoration** | Title updated from "Repair" to "Restoration"; added "cold solder joints and GPU socket oxidation" from 3D imaging; added "NVIDIA CUDA benchmarks" phrasing |
+| **Spare-Parts Supply Chain** | Added "NVIDIA and AMD GPU chips" inventory detail; changed "30-minute city delivery" to "2-hour intra-city dispatch"; added "on-site customer forward stocking at 1:1 redundancy for large data centre clients" |
+| **Software & Firmware Services** | Renamed from "Software Testing & Maintenance"; expanded to cover BIOS/UEFI (PCIe link, Above 4G Decoding, MIG/persistence), driver management (CUDA Toolkit, cuDNN), VBIOS flashing, DCGM monitoring, Nsight diagnostics |
+| **On-site Maintenance Services** | Renamed from "O&M Services"; added specific monitoring parameters (temperature, voltage, cooling, fan speed, resource utilisation); added "fault report within one working day" and component scope (CPUs, memory, storage, PSU, motherboards) |
+| **Extended Warranty & Value-Added** | Added pricing detail (5–8% per year), "non-human factor failures" scope, "no labour charges during warranty period", "same-model GPU servers" for loaner, "quarterly Equipment Health Reports" |
+
+### Process Section — 8-Step Workflow → 6-Phase Closed Loop
+
+The "Repair Workflow" section was restructured as the "Technical Service Loop" based on Slide 1's full-stack closed-loop framework:
+
+| Before | After |
+|---|---|
+| Section label | "Repair Workflow" → "Technical Service Loop" |
+| Title | "Rigorous Step-by-Step Process" → "A Closed Loop of End-to-End Excellence" |
+| Steps | 8 steps (unboxing → dispatch) | 6 phases matching PPTX structure |
+
+**6 phases:**
+
+| # | Phase | Content source |
+|---|---|---|
+| 01 | Hardware Repair | Chip-level BGA + module repair, <0.8% fault recurrence (Slide 1) |
+| 02 | Software Optimisation | BIOS/UEFI, driver/CUDA, VBIOS flashing (Slide 5) |
+| 03 | System Hardening | OS GPU config, driver compatibility, firmware fault rectification (Slide 5) |
+| 04 | Rigorous Validation | 12-hour stress test, OEM CUDA benchmarks, ≥98% factory standard (Slide 1 + 2) |
+| 05 | Intelligent O&M | DCGM monitoring, DCGM alert deployment, quarterly health reports (Slides 4, 6) |
+| 06 | Agile Supply | 3-tier warehouse, 2-hour city delivery, ATE-tested 30-day warranty (Slide 3) |
+
+---
+
+## Version 10 — Careers Page Roles Update & Logo Replacement
+
+**Brief from user:** Replace all job listings on the Careers page with 7 new roles (all Johor Bahru, Malaysia), update apply/CTA email to `yibo@vertexservice.ai`, and replace the triangle logo with the company's chip icon.
+
+### Careers Page — Job Listings
+
+Previous 4 listings (mixed Singapore/JB locations) replaced with 7 roles, all at Johor Bahru, Malaysia:
+
+| Role | Type |
+|---|---|
+| Senior GPU Maintenance Engineer | Full-time |
+| Intermediate Maintenance Engineer | Full-time |
+| Junior Maintenance Engineer | Full-time |
+| Senior GPU Operation & Maintenance Engineer | Full-time |
+| Intermediate Operation & Maintenance Engineer | Full-time |
+| Junior Operation & Maintenance Engineer | Full-time |
+| Admin Assistant | Full-time |
+
+### Careers Email
+
+| Location | Before | After |
+|---|---|---|
+| Each "Apply for this role →" `mailto:` | `enquiry@vertexservice.ai` | `yibo@vertexservice.ai` |
+| Open-application CTA at bottom of page | `enquiry@vertexservice.ai` | `yibo@vertexservice.ai` |
+
+All `mailto:` subject lines set to the specific role title (e.g. `subject=Application: Senior GPU Maintenance Engineer`).
+
+### Logo Replacement
+
+The previous inline SVG triangle mark (outline polygon + inner fill + vertical line) was replaced with a new chip icon in both the navbar and footer.
+
+| Element | Before | After |
+|---|---|---|
+| Navbar logo mark | Inline SVG triangle (`#0E9850` stroke) | `<img src="/images/logo-chip.svg">` |
+| Footer logo mark | Inline SVG triangle (`#1FC870` stroke) | `<img src="/images/logo-chip.svg">` |
+
+**New file:** `public/images/logo-chip.svg` — a 512×512 SVG chip icon:
+- Outer rounded-square chip body: `#16A34A` (lighter green)
+- Inner rounded-square chip area: radial gradient `#196b36` → `#0a3d1e` (darker green)
+- 7 pins on top and bottom edges (alternating 24px/34px height)
+- 6 pins on left and right edges (alternating 34px/24px width)
+- Indicator dot: `#22C55E`, radius 14px, top-left corner of inner chip area
+- "V" letterform: white stroke, 48px width, rounded caps and join
+
+---
+
+## Version 11 — Services Banner Image Replacement
+
+**Brief from user:** Replace the generic facility photo in the Services tab banner with a new AI-generated image showing a diverse team (Taiwanese, Malaysian, American faces) wearing green-themed uniforms.
+
+| Element | Before | After |
+|---|---|---|
+| Services banner image | `pdf_p67_0.jpeg` (original Bainei facility photo) | `facility-team.png` (AI-generated, brand-aligned) |
+| Alt text | Unchanged | "Vertex Infrastructure Services engineers performing GPU diagnostics at Johor Bahru repair centre" |
+
+New image characteristics: diverse team of engineers at green-topped workbenches in a clean white repair facility, uniforms in brand green (`#0E9850`), matches the visual tone of the rest of the site.
+
+---
+
 ## File Structure
 
 ```
@@ -474,6 +587,8 @@ Vertex Website/
 └── public/
     ├── css/
     │   └── main.css    # Complete design system (~850 lines)
-    └── js/
-        └── main.js     # Navbar scroll, mobile nav, counters, scroll-reveal, SLA carousel dots
+    ├── js/
+    │   └── main.js     # Navbar scroll, mobile nav, counters, scroll-reveal, SLA carousel dots
+    └── images/
+        └── logo-chip.svg  # Chip icon logo (v10+)
 ```
