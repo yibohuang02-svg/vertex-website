@@ -11,7 +11,7 @@ function revealVisibleInPanel(panel) {
   // IntersectionObserver doesn't re-fire after display:none → block.
   // Double-rAF ensures the browser has committed layout before we check positions.
   const sel = '.service-card, .about-card, .sla-card, .case-card, .facility-zone, ' +
-              '.coverage-point, .process-step, .cert-badge, .pillar';
+              '.coverage-point, .process-step, .journey-step, .cert-badge, .pillar';
   requestAnimationFrame(() => requestAnimationFrame(() => {
     panel.querySelectorAll(sel).forEach(el => {
       if (el.classList.contains('revealed')) return;
@@ -140,7 +140,7 @@ const revealObserver = new IntersectionObserver(entries => {
 
 document.querySelectorAll(
   '.service-card, .about-card, .sla-card, .case-card, .facility-zone, ' +
-  '.coverage-point, .process-step, .cert-badge, .pillar'
+  '.coverage-point, .process-step, .journey-step, .cert-badge, .pillar'
 ).forEach((el, i) => {
   el.style.opacity    = '0';
   el.style.transform  = 'translateY(24px)';
@@ -201,6 +201,43 @@ if (form) {
       btnText.textContent = 'Send Enquiry';
     }
   });
+}
+
+// ── Journey line scroll-fill ─────────────────────
+// The persistent line fills as the visitor scrolls the journey,
+// reinforcing the "one continuous, end-to-end process" message.
+const journeyTrack    = document.getElementById('journeyTrack');
+const journeyLineFill = document.getElementById('journeyLineFill');
+
+if (journeyTrack && journeyLineFill) {
+  const updateJourneyLine = () => {
+    const rect = journeyTrack.getBoundingClientRect();
+    if (rect.height === 0) return; // panel hidden
+    // Fill from when the track enters the viewport until its end passes the ~60% line
+    const anchor   = window.innerHeight * 0.6;
+    const progress = (anchor - rect.top) / rect.height;
+    journeyLineFill.style.height = (Math.max(0, Math.min(1, progress)) * 100) + '%';
+  };
+  window.addEventListener('scroll', updateJourneyLine, { passive: true });
+  window.addEventListener('resize', updateJourneyLine, { passive: true });
+  updateJourneyLine();
+}
+
+// ── Footage frame "camera on" transition ─────────
+// The unboxing photo switches to a live-footage treatment (REC badge,
+// timecode, viewfinder corners) once it scrolls into view.
+const footageFrame = document.getElementById('footageFrame');
+
+if (footageFrame) {
+  const footageObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        footageFrame.classList.add('live');
+        footageObserver.unobserve(footageFrame);
+      }
+    });
+  }, { threshold: 0.35 });
+  footageObserver.observe(footageFrame);
 }
 
 // ── SLA carousel dots (mobile) ────────────────────
