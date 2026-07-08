@@ -11,7 +11,7 @@ function revealVisibleInPanel(panel) {
   // IntersectionObserver doesn't re-fire after display:none → block.
   // Double-rAF ensures the browser has committed layout before we check positions.
   const sel = '.service-card, .about-card, .sla-card, .case-card, .facility-zone, ' +
-              '.coverage-point, .process-step, .cert-badge, .pillar';
+              '.coverage-point, .process-step, .journey-step, .cert-badge, .pillar';
   requestAnimationFrame(() => requestAnimationFrame(() => {
     panel.querySelectorAll(sel).forEach(el => {
       if (el.classList.contains('revealed')) return;
@@ -23,7 +23,7 @@ function revealVisibleInPanel(panel) {
   }));
 }
 
-function switchTab(tabName) {
+function switchTab(tabName, updateUrl = false) {
   tabPanels.forEach(p => p.classList.remove('active'));
   navTabs.forEach(t => t.classList.remove('active'));
 
@@ -37,20 +37,40 @@ function switchTab(tabName) {
   }
   if (btn) btn.classList.add('active');
 
-  history.replaceState(null, '', '#' + tabName);
+  if (updateUrl) {
+    const path = tabName === 'home' ? '/' : '/' + tabName;
+    if (window.location.pathname !== path) {
+      history.pushState({ tab: tabName }, '', path);
+    }
+  }
 }
 
-// Init from hash or default to home
-const validTabs  = ['home', 'services', 'coverage', 'cases', 'contact'];
-const initialTab = validTabs.includes(window.location.hash.slice(1))
-  ? window.location.hash.slice(1)
-  : 'home';
+// Init from the URL path (falls back to a legacy #hash link, then home)
+const validTabs = ['home', 'services', 'coverage', 'career', 'contact'];
+
+function tabFromPath(pathname) {
+  const seg = pathname.replace(/^\/|\/$/g, '');
+  return validTabs.includes(seg) ? seg : null;
+}
+
+const hashTab    = validTabs.includes(window.location.hash.slice(1)) ? window.location.hash.slice(1) : null;
+const initialTab = tabFromPath(window.location.pathname) || hashTab || 'home';
 switchTab(initialTab);
+
+// Upgrade old #hash links to the new path silently, without adding a history entry
+if (hashTab && !tabFromPath(window.location.pathname)) {
+  history.replaceState({ tab: initialTab }, '', initialTab === 'home' ? '/' : '/' + initialTab);
+}
+
+// Browser back/forward
+window.addEventListener('popstate', () => {
+  switchTab(tabFromPath(window.location.pathname) || 'home');
+});
 
 // Nav tab clicks
 navTabs.forEach(btn => {
   btn.addEventListener('click', () => {
-    switchTab(btn.dataset.tab);
+    switchTab(btn.dataset.tab, true);
     navLinks.classList.remove('open');
   });
 });
@@ -60,7 +80,7 @@ document.addEventListener('click', e => {
   const el = e.target.closest('[data-goto-tab]');
   if (el) {
     e.preventDefault();
-    switchTab(el.dataset.gotoTab);
+    switchTab(el.dataset.gotoTab, true);
     navLinks.classList.remove('open');
   }
 });
@@ -120,7 +140,7 @@ const revealObserver = new IntersectionObserver(entries => {
 
 document.querySelectorAll(
   '.service-card, .about-card, .sla-card, .case-card, .facility-zone, ' +
-  '.coverage-point, .process-step, .cert-badge, .pillar'
+  '.coverage-point, .process-step, .journey-step, .cert-badge, .pillar'
 ).forEach((el, i) => {
   el.style.opacity    = '0';
   el.style.transform  = 'translateY(24px)';
@@ -135,6 +155,10 @@ document.head.insertAdjacentHTML('beforeend', `
 `);
 
 // ── Contact form ─────────────────────────────────────
+// Submits straight to Web3Forms (https://web3forms.com) so enquiries reach
+// enquiry@vertexservice.ai without needing a backend on the production server.
+const WEB3FORMS_ACCESS_KEY = '02cce691-9113-4912-8e80-dfd216126df0';
+
 const form           = document.getElementById('contactForm');
 const submitBtn      = document.getElementById('submitBtn');
 const formSuccess    = document.getElementById('formSuccess');
@@ -150,27 +174,70 @@ if (form) {
 
     try {
       const data = Object.fromEntries(new FormData(form));
-      const res  = await fetch('/contact', {
+      data.access_key = WEB3FORMS_ACCESS_KEY;
+      data.subject    = 'New enquiry — Vertex Service website';
+
+      const res  = await fetch('https://api.web3forms.com/submit', {
         method:  'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body:    JSON.stringify(data),
       });
       const json = await res.json();
 
-      if (json.success) {
-        form.querySelectorAll('input, select, textarea').forEach(el => el.value = '');
-        formSuccessMsg.textContent = json.message;
-        formSuccess.classList.add('show');
-        setTimeout(() => formSuccess.classList.remove('show'), 6000);
-      }
-    } catch (err) {
-      formSuccessMsg.textContent = 'Submission received. We will be in touch shortly.';
+      if (!json.success) throw new Error(json.message || 'Submission failed');
+
+      form.querySelectorAll('input, select, textarea').forEach(el => el.value = '');
+      formSuccess.classList.remove('is-error');
+      formSuccessMsg.textContent = 'Thank you. We will be in touch within 24 hours.';
       formSuccess.classList.add('show');
+      setTimeout(() => formSuccess.classList.remove('show'), 6000);
+    } catch (err) {
+      formSuccess.classList.add('is-error');
+      formSuccessMsg.textContent = 'Something went wrong — please email us directly at enquiry@vertexservice.ai.';
+      formSuccess.classList.add('show');
+      setTimeout(() => formSuccess.classList.remove('show', 'is-error'), 8000);
     } finally {
       submitBtn.disabled  = false;
       btnText.textContent = 'Send Enquiry';
     }
   });
+}
+
+// ── Journey line scroll-fill ─────────────────────
+// The persistent line fills as the visitor scrolls the journey,
+// reinforcing the "one continuous, end-to-end process" message.
+const journeyTrack    = document.getElementById('journeyTrack');
+const journeyLineFill = document.getElementById('journeyLineFill');
+
+if (journeyTrack && journeyLineFill) {
+  const updateJourneyLine = () => {
+    const rect = journeyTrack.getBoundingClientRect();
+    if (rect.height === 0) return; // panel hidden
+    // Fill from when the track enters the viewport until its end passes the ~60% line
+    const anchor   = window.innerHeight * 0.6;
+    const progress = (anchor - rect.top) / rect.height;
+    journeyLineFill.style.height = (Math.max(0, Math.min(1, progress)) * 100) + '%';
+  };
+  window.addEventListener('scroll', updateJourneyLine, { passive: true });
+  window.addEventListener('resize', updateJourneyLine, { passive: true });
+  updateJourneyLine();
+}
+
+// ── Footage frame "camera on" transition ─────────
+// The unboxing photo switches to a live-footage treatment (REC badge,
+// timecode, viewfinder corners) once it scrolls into view.
+const footageFrame = document.getElementById('footageFrame');
+
+if (footageFrame) {
+  const footageObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        footageFrame.classList.add('live');
+        footageObserver.unobserve(footageFrame);
+      }
+    });
+  }, { threshold: 0.35 });
+  footageObserver.observe(footageFrame);
 }
 
 // ── SLA carousel dots (mobile) ────────────────────
