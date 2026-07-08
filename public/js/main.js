@@ -23,7 +23,7 @@ function revealVisibleInPanel(panel) {
   }));
 }
 
-function switchTab(tabName) {
+function switchTab(tabName, updateUrl = false) {
   tabPanels.forEach(p => p.classList.remove('active'));
   navTabs.forEach(t => t.classList.remove('active'));
 
@@ -37,20 +37,40 @@ function switchTab(tabName) {
   }
   if (btn) btn.classList.add('active');
 
-  history.replaceState(null, '', '#' + tabName);
+  if (updateUrl) {
+    const path = tabName === 'home' ? '/' : '/' + tabName;
+    if (window.location.pathname !== path) {
+      history.pushState({ tab: tabName }, '', path);
+    }
+  }
 }
 
-// Init from hash or default to home
-const validTabs  = ['home', 'services', 'coverage', 'cases', 'contact'];
-const initialTab = validTabs.includes(window.location.hash.slice(1))
-  ? window.location.hash.slice(1)
-  : 'home';
+// Init from the URL path (falls back to a legacy #hash link, then home)
+const validTabs = ['home', 'services', 'coverage', 'career', 'contact'];
+
+function tabFromPath(pathname) {
+  const seg = pathname.replace(/^\/|\/$/g, '');
+  return validTabs.includes(seg) ? seg : null;
+}
+
+const hashTab    = validTabs.includes(window.location.hash.slice(1)) ? window.location.hash.slice(1) : null;
+const initialTab = tabFromPath(window.location.pathname) || hashTab || 'home';
 switchTab(initialTab);
+
+// Upgrade old #hash links to the new path silently, without adding a history entry
+if (hashTab && !tabFromPath(window.location.pathname)) {
+  history.replaceState({ tab: initialTab }, '', initialTab === 'home' ? '/' : '/' + initialTab);
+}
+
+// Browser back/forward
+window.addEventListener('popstate', () => {
+  switchTab(tabFromPath(window.location.pathname) || 'home');
+});
 
 // Nav tab clicks
 navTabs.forEach(btn => {
   btn.addEventListener('click', () => {
-    switchTab(btn.dataset.tab);
+    switchTab(btn.dataset.tab, true);
     navLinks.classList.remove('open');
   });
 });
@@ -60,7 +80,7 @@ document.addEventListener('click', e => {
   const el = e.target.closest('[data-goto-tab]');
   if (el) {
     e.preventDefault();
-    switchTab(el.dataset.gotoTab);
+    switchTab(el.dataset.gotoTab, true);
     navLinks.classList.remove('open');
   }
 });
@@ -135,6 +155,10 @@ document.head.insertAdjacentHTML('beforeend', `
 `);
 
 // ── Contact form ─────────────────────────────────────
+// Submits straight to Web3Forms (https://web3forms.com) so enquiries reach
+// enquiry@vertexservice.ai without needing a backend on the production server.
+const WEB3FORMS_ACCESS_KEY = '02cce691-9113-4912-8e80-dfd216126df0';
+
 const form           = document.getElementById('contactForm');
 const submitBtn      = document.getElementById('submitBtn');
 const formSuccess    = document.getElementById('formSuccess');
@@ -150,22 +174,28 @@ if (form) {
 
     try {
       const data = Object.fromEntries(new FormData(form));
-      const res  = await fetch('/contact', {
+      data.access_key = WEB3FORMS_ACCESS_KEY;
+      data.subject    = 'New enquiry — Vertex Service website';
+
+      const res  = await fetch('https://api.web3forms.com/submit', {
         method:  'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body:    JSON.stringify(data),
       });
       const json = await res.json();
 
-      if (json.success) {
-        form.querySelectorAll('input, select, textarea').forEach(el => el.value = '');
-        formSuccessMsg.textContent = json.message;
-        formSuccess.classList.add('show');
-        setTimeout(() => formSuccess.classList.remove('show'), 6000);
-      }
-    } catch (err) {
-      formSuccessMsg.textContent = 'Submission received. We will be in touch shortly.';
+      if (!json.success) throw new Error(json.message || 'Submission failed');
+
+      form.querySelectorAll('input, select, textarea').forEach(el => el.value = '');
+      formSuccess.classList.remove('is-error');
+      formSuccessMsg.textContent = 'Thank you. We will be in touch within 24 hours.';
       formSuccess.classList.add('show');
+      setTimeout(() => formSuccess.classList.remove('show'), 6000);
+    } catch (err) {
+      formSuccess.classList.add('is-error');
+      formSuccessMsg.textContent = 'Something went wrong — please email us directly at enquiry@vertexservice.ai.';
+      formSuccess.classList.add('show');
+      setTimeout(() => formSuccess.classList.remove('show', 'is-error'), 8000);
     } finally {
       submitBtn.disabled  = false;
       btnText.textContent = 'Send Enquiry';
