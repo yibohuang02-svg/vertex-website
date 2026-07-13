@@ -1263,8 +1263,6 @@ textarea { resize: vertical; min-height: 110px; }
     align-items: stretch;
   }
   .nav-links.open { display: flex; }
-  /* Home is reachable via the logo, which stays visible above the open menu */
-  .nav-home-item { display: none; }
   .nav-tab { text-align: left; padding: 12px; font-size: 1rem; border-radius: 8px; }
   .nav-tab.active::after { display: none; }
   .nav-cta { margin-left: 0 !important; margin-top: 8px; text-align: center; }
