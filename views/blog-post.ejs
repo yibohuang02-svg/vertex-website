@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= post.title %> — Vertex Service Blog</title>
+  <meta name="description" content="<%= post.excerpt %>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="/images/favicon.png" />
+  <link rel="stylesheet" href="/css/main.css?v=<%= buildVersion %>" />
+</head>
+<body>
+
+<%- include('partials/blog-nav') %>
+
+  <main>
+    <section class="section blog-post-header">
+      <div class="container container-narrow">
+        <a href="/blog" class="blog-back-link">&larr; Back to Blog</a>
+        <div class="section-label"><%= post.category %></div>
+        <h1 class="blog-post-title"><%= post.title %></h1>
+        <div class="blog-post-meta">
+          <span><%= post.date %></span>
+          <span class="meta-dot">&middot;</span>
+          <span><%= post.readTime %> read</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section blog-post-body">
+      <div class="container container-narrow">
+        <div class="blog-content">
+          <%- post.bodyHtml %>
+        </div>
+
+        <div class="blog-content-cta">
+          <p><strong>Vertex Service</strong> specialises in data centre maintenance and component-level repair — helping operators cut costs, extend hardware life, and stay online.</p>
+          <a href="/contact" class="btn btn-primary">Get in Touch</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<%- include('partials/blog-footer') %>
+
+  <script src="/js/main.js?v=<%= buildVersion %>"></script>
+</body>
+</html>

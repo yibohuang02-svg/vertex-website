@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Vertex Service</title>
+  <meta name="description" content="Field notes from the Vertex Service repair centre on GPU and data centre infrastructure — hardware lifecycle, maintenance strategy, and repair economics." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="/images/favicon.png" />
+  <link rel="stylesheet" href="/css/main.css?v=<%= buildVersion %>" />
+</head>
+<body>
+
+<%- include('partials/blog-nav') %>
+
+  <main>
+    <section class="section blog-hero">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">Blog</div>
+          <h1 class="section-title">Insights on <span class="gradient-text">GPU &amp; Data Centre Infrastructure</span></h1>
+          <p class="section-sub">Field notes from our repair centre — on hardware lifecycle, maintenance strategy, and getting more out of the infrastructure you already own.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section blog-listing">
+      <div class="container">
+        <div class="blog-grid">
+          <% posts.forEach(post => { %>
+          <a href="/blog/<%= post.slug %>" class="blog-card">
+            <div class="blog-card-meta">
+              <span class="blog-card-category"><%= post.category %></span>
+              <span class="blog-card-date"><%= post.date %></span>
+            </div>
+            <h3><%= post.title %></h3>
+            <p><%= post.excerpt %></p>
+            <span class="blog-card-cta">
+              Read Article
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+          <% }) %>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<%- include('partials/blog-footer') %>
+
+  <script src="/js/main.js?v=<%= buildVersion %>"></script>
+</body>
+</html>

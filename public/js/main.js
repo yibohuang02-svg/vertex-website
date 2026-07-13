@@ -3,7 +3,9 @@
 ═══════════════════════════════════════════════ */
 
 // ── Tab switching ─────────────────────────────────
-const navTabs   = document.querySelectorAll('.nav-tab');
+// Only tab buttons carry data-tab; plain page links (e.g. Blog) reuse the
+// .nav-tab class for styling but should behave as normal navigation.
+const navTabs   = document.querySelectorAll('.nav-tab[data-tab]');
 const tabPanels = document.querySelectorAll('.tab-panel');
 const navLinks  = document.getElementById('navLinks');
 

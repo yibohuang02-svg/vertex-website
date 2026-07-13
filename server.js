@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const blogPosts = require('./data/blog-posts');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -16,6 +17,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 // tab switcher reads the path to decide which panel to show.
 app.get(['/', '/services', '/coverage', '/career', '/contact'], (req, res) => {
   res.render('index', { buildVersion: BUILD_VERSION });
+});
+
+// Blog has real per-post URLs (each one is its own template/route), unlike
+// the client-side tab panels above.
+app.get('/blog', (req, res) => {
+  res.render('blog-index', { buildVersion: BUILD_VERSION, posts: blogPosts });
+});
+
+app.get('/blog/:slug', (req, res) => {
+  const post = blogPosts.find(p => p.slug === req.params.slug);
+  if (!post) return res.redirect('/blog');
+  res.render('blog-post', { buildVersion: BUILD_VERSION, post });
 });
 
 // Only start the HTTP server when run directly (local dev).
